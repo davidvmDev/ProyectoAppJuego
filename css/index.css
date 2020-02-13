@@ -1,0 +1,34 @@
+section{
+    width:360px;
+    height:640px;
+    text-align: center;
+}
+#splash{
+    background: LightSeaGreen;
+}
+#home{
+    background: OrangeRed;
+}
+#juego{
+    background: Violet;
+}
+#instrucciones{
+    background: YellowGreen;
+}
+#creditos{
+    background: DeepSkyBlue;
+}	
+#instrucciones p{
+    margin:25px;
+    text-align: left;
+}	
+.boton{
+    background-color: Navy;
+    color:white;
+    padding: 10px;
+    text-decoration: none;
+}
+.volver{
+    margin-left: -300px;
+    line-height: 50px;
+}
