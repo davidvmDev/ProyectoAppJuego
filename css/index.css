@@ -1,14 +1,11 @@
-body{
-    margin:0%;
-    display: block;
-}
+
 section{
     width:1080px;
     height:2160px;
     text-align: center;
     background: black;
     color: white;
-    display: block;
+    
 }
 #splash{
     
@@ -36,6 +33,28 @@ section{
     text-decoration: none;
 }
 .volver{
-    margin-left: -300px;
-    line-height: 50px;
+     margin-left: -980px;
+    line-height: 140px;
+}
+h1{
+    font-size: 120px;
+}
+ .imagen{
+    height: 30%;
+    width: 60%;
+    padding-top: 20%;
+}
+
+a{
+    font-size: 70px;
+}
+p{
+    font-size: 70px;
+    margin:50px;
+}
+span{
+    font-size: 70px;
+}
+#integrantes{
+    margin-top: 20px;
 }
