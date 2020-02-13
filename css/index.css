@@ -1,9 +1,14 @@
+body{
+    margin:0%;
+    display: block;
+}
 section{
-    width:360px;
-    height:640px;
+    width:1080px;
+    height:2160px;
     text-align: center;
     background: black;
     color: white;
+    display: block;
 }
 #splash{
     
