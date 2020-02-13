@@ -2,21 +2,23 @@ section{
     width:360px;
     height:640px;
     text-align: center;
+    background: black;
+    color: white;
 }
 #splash{
-    background: LightSeaGreen;
+    
 }
 #home{
-    background: OrangeRed;
+    
 }
 #juego{
-    background: Violet;
+    
 }
 #instrucciones{
-    background: YellowGreen;
+    
 }
 #creditos{
-    background: DeepSkyBlue;
+    
 }	
 #instrucciones p{
     margin:25px;
