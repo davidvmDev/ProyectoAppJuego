@@ -3,7 +3,6 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Single App ejemplo</title>
-	<link rel="stylesheet" type="text/css" href="css/index.css">
 	<style>
 section{
     width:1080px;
@@ -64,36 +63,70 @@ span{
 #integrantes{
     margin-top: 20px;
 }
+.oculto{
+			display: none;
+		}
 	</style>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
 
 	<script>
-		
-
-
-	</script>
+		var secciones = [];
+		var tiempo_splash = 2000;
+	
+		window.onload = function(){
+			inicializarReferencias();
+			setTimeout(cambiarSplash,tiempo_splash);
+		}
+	
+		function inicializarReferencias(){
+			secciones[1] = document.getElementById("seccion_1");
+			secciones[2] = document.getElementById("seccion_2");
+			secciones[3] = document.getElementById("seccion_3");
+			secciones[4] = document.getElementById("seccion_4");
+			secciones[5] = document.getElementById("seccion_5");
+			secciones[6] = document.getElementById("seccion_6");
+		}
+	
+		function cambiarSplash(){
+			secciones[1].className = "splash oculto";
+			secciones[2].className = "home";
+		}
+	
+		//https://developer.mozilla.org/es/docs/Web/API/Element/classList
+		//https://www.youtube.com/watch?v=2z0wMNHPbzk
+		function cambiarSeccion(id_seccion){
+	
+			for (var i in secciones) {
+				secciones[i].classList.add("oculto");
+			}
+	
+			secciones[id_seccion].classList.add("animated");
+			secciones[id_seccion].classList.add("headShake");
+			secciones[id_seccion].classList.remove("oculto");
+		}
+		</script>
 </head>
 <body>
 	<!-- Splash -->
-	<section id="splash">
+	<section id="seccion_1" class="splash">
 		<br>
 		<h1>Splash del juego</h1>
 		<img src="http://icons.iconarchive.com/icons/sonya/swarm/128/ivoted-2014-icon.png" alt="" class="imagen">
 	</section>
 	<!-- Home -->
-	<section id="home">
+	<section id="seccion_2" class="home">
 		<br>
 		<h1>Nombre del juego</h1>
 		<img src="http://icons.iconarchive.com/icons/sonya/swarm/128/ivoted-2014-icon.png" alt="" class="imagen">
 		<br>
 		<br>
-		<a href="#juego">Juego</a><br><br>
-		<a href="#objetivo">Instrucciones</a><br><br>
-		<a href="#creditos">Créditos</a><br>
+		<a href="#juego" onclick="cambiarSeccion(3)">Juego</a><br><br>
+		<a href="#objetivo" onclick="cambiarSeccion(5)">Instrucciones</a><br><br>
+		<a href="#creditos" onclick="cambiarSeccion(4)">Créditos</a><br>
 	</section>
 	<!-- Juego -->
-	<section id="juego">
-		<a href="#home" class="boton volver">&lt;</a>
+	<section id="seccion_3" class="juego">
+		<a href="#home" class="boton volver" onclick="cambiarSeccion(2)">&lt;</a>
 		<br>
 		<h1>Juego</h1>
 		<br>
@@ -105,8 +138,8 @@ span{
 		<a href="#">Diana Rodríguez</a>&nbsp;&nbsp;
 	</section>
 	<!-- Créditos / Autores -->
-	<section id="creditos">
-		<a href="#home" class="boton volver">&lt;</a>
+	<section id="seccion_4" class="creditos">
+		<a href="#home" class="boton volver" onclick="cambiarSeccion(2)">&lt;</a>
 		<br>
 		<br>
 		<h1>Créditos - Estudiantes</h1>
@@ -121,8 +154,8 @@ span{
         </div>
 	</section>
 	<!-- Objetivo -->
-	<section id="objetivo">
-		<a href="#home" class="boton volver">&lt;</a>
+	<section id="seccion_5" class="objetivo" >
+		<a href="#home" class="boton volver" onclick="cambiarSeccion(2)">&lt;</a>
 		<h1>Objetivo</h1>
 		<p>
 			Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti, explicabo ducimus voluptates suscipit consequatur eligendi eos, hic aperiam sit! Recusandae explicabo provident sapiente beatae nam soluta ab minima omnis sed! <br>
@@ -132,7 +165,7 @@ span{
 		<a href="#como_jugar" class="boton">&gt;</a>
 	</section>
 	<!-- Cómo Jugar -->
-	<section id="como_jugar">
+	<section id="seccion_6">
 		<a href="#home" class="boton volver">&lt;</a>
 		<h1>Cómo Jugar</h1>
 		<p>
@@ -143,4 +176,5 @@ span{
 		<a href="#objetivo" class="boton">&lt;</a>
 	</section>
 </body>
+
 </html>
