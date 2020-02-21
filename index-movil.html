@@ -6,12 +6,14 @@
 	<title>Single App ejemplo</title>
 	<style>
 		section {
-			width: 1080px;
-			height: 1960px;
+			/*width: 1080px;
+			height: 1960px;*/
+			width: 410px;
+			height: 340px;
 			text-align: center;
 			background: #102439;
 			color: white;
-
+			position: relative;
 		}
 
 		#splash {}
@@ -96,6 +98,14 @@
 		.oculto {
 			display: none;
 		}
+		#prueba{
+			position: absolute;
+			top:0px;
+			left: 0px;
+			background-color: rebeccapurple;
+			width: 100px;
+			height: 50px;
+		}
 	</style>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
 
@@ -105,7 +115,7 @@
 
 		window.onload = function () {
 			inicializarReferencias();
-			setTimeout(cambiarSplash, tiempo_splash);
+			//setTimeout(cambiarSplash, tiempo_splash);
 		}
 
 		function inicializarReferencias() {
@@ -139,14 +149,15 @@
 
 <body>
 	<!-- Splash -->
-	<section id="seccion_1" class="splash">
+	<section id="seccion_1" class="splash oculto">
 		<br>
 		<h1>Splash del juego</h1>
 		<img src="http://icons.iconarchive.com/icons/sonya/swarm/128/ivoted-2014-icon.png" alt="" class="imagen">
 	</section>
 	<!-- Home -->
 	<section id="seccion_2" class="home">
-		<div>
+		<button id="prueba"></button>
+<!-- 		<div>
 			<img src="https://i.ibb.co/YQZB8xc/estrellas2.png" alt="estrellas2" id="estrellas2">
 			<img src="https://i.ibb.co/JjFTKYR/monstruo-Verde.png" alt="monstruo-Verde" id="monstruoVerde">
 		</div>
@@ -161,14 +172,11 @@
 		<div>
 			<img src="https://i.ibb.co/nm9vnkk/monstruo-Rojo.png" alt="monstruo-Rojo" id="monstruoRojo">
 			<img src="https://i.ibb.co/1Q801tN/estrellas1.png" alt="estrellas1" id="estrellas1">
-		</div>
-
-
-
-
+		</div> -->
+	
 	</section>
 	<!-- Juego -->
-	<section id="seccion_3" class="juego">
+	<section id="seccion_3" class="juego oculto">
 		<a href="#home" class="boton volver" onclick="cambiarSeccion(2)">&lt;</a>
 		<br>
 		<h1>Juego</h1>
@@ -181,7 +189,7 @@
 		<a href="#">Diana Rodríguez</a>&nbsp;&nbsp;
 	</section>
 	<!-- Créditos / Autores -->
-	<section id="seccion_4" class="creditos">
+	<section id="seccion_4" class="creditos oculto">
 		<a href="#home" class="boton volver" onclick="cambiarSeccion(2)">&lt;</a>
 		<br>
 		<br>
@@ -200,7 +208,7 @@
 		</div>
 	</section>
 	<!-- Objetivo -->
-	<section id="seccion_5" class="objetivo">
+	<section id="seccion_5" class="objetivo oculto">
 		<a href="#home" class="boton volver" onclick="cambiarSeccion(2)">&lt;</a>
 		<h1>Objetivo</h1>
 		<p>
@@ -215,7 +223,7 @@
 		<a href="#como_jugar" class="boton">&gt;</a>
 	</section>
 	<!-- Cómo Jugar -->
-	<section id="seccion_6">
+	<section id="seccion_6" class="oculto">
 		<a href="#home" class="boton volver">&lt;</a>
 		<h1>Cómo Jugar</h1>
 		<p>
