@@ -1,89 +1,99 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 	<meta charset="UTF-8">
 	<title>Single App ejemplo</title>
 	<style>
-section{
-    width:1080px;
-    height:2160px;
-    text-align: center;
-    background:#102439;
-    color: white;
-    
-}
-#splash{
-    
-}
-#home{
-    
-}
-#juego{
-    
-}
-#objetivo{
-    
-}
-#creditos{
-    
-}	
-#como_jugar{
-    margin:25px;
-    text-align: left;
-}	
-.boton{
-    background-color: Navy;
-    color:white;
-    padding: 10px;
-    text-decoration: none;
-}
-.volver{
-     margin-left: -980px;
-    line-height: 140px;
-}
-h1{
-    font-size: 120px;
-}
- .imagen{
-    height: 30%;
-    width: 60%;
-    padding-top: 20%;
-}
-.btnMenu{
-	width:60%;
-	padding: 5%;
-}
-#mounstroVerde{
-	width: 35%;
-	margin-left: 15%;
-	margin-bottom: 190px;
-}
-#mounstroRojo{
-	width: 350px;
-	margin-right: 15%;
-}
-#estrellas1{
-	width: 34%;
-	
-}
-#estrellas2{
-	width: 35%;
-}
+		section {
+			width: 1080px;
+			height: 1960px;
+			text-align: center;
+			background: #102439;
+			color: white;
 
-a{
-    font-size: 70px;
-}
-p{
-    font-size: 70px;
-    margin:50px;
-}
-span{
-    font-size: 70px;
-}
-#integrantes{
-    margin-top: 20px;
-}
-.oculto{
+		}
+
+		#splash {}
+
+		#home {}
+
+		#juego {}
+
+		#objetivo {}
+
+		#creditos {}
+
+		#como_jugar {
+			margin: 25px;
+			text-align: left;
+		}
+
+		.boton {
+			background-color: Navy;
+			color: white;
+			padding: 10px;
+			text-decoration: none;
+		}
+
+		.volver {
+			margin-left: -980px;
+			line-height: 140px;
+		}
+
+		h1 {
+			font-size: 120px;
+		}
+
+		.imagen {
+			height: 30%;
+			width: 60%;
+			padding-top: 20%;
+		}
+
+		.btnMenu {
+			width: 60%;
+			padding: 5%;
+		}
+
+		#monstruoVerde {
+			width: 35%;
+			margin-left: 15%;
+			margin-bottom: 190px;
+		}
+
+		#monstruoRojo {
+			width: 350px;
+			margin-right: 15%;
+		}
+
+		#estrellas1 {
+			width: 34%;
+
+		}
+
+		#estrellas2 {
+			width: 35%;
+		}
+
+		a {
+			font-size: 70px;
+		}
+
+		p {
+			font-size: 70px;
+			margin: 50px;
+		}
+
+		span {
+			font-size: 70px;
+		}
+
+		#integrantes {
+			margin-top: 20px;
+		}
+
+		.oculto {
 			display: none;
 		}
 	</style>
@@ -92,13 +102,13 @@ span{
 	<script>
 		var secciones = [];
 		var tiempo_splash = 2000;
-	
-		window.onload = function(){
+
+		window.onload = function () {
 			inicializarReferencias();
-			setTimeout(cambiarSplash,tiempo_splash);
+			setTimeout(cambiarSplash, tiempo_splash);
 		}
-	
-		function inicializarReferencias(){
+
+		function inicializarReferencias() {
 			secciones[1] = document.getElementById("seccion_1");
 			secciones[2] = document.getElementById("seccion_2");
 			secciones[3] = document.getElementById("seccion_3");
@@ -106,26 +116,27 @@ span{
 			secciones[5] = document.getElementById("seccion_5");
 			secciones[6] = document.getElementById("seccion_6");
 		}
-	
-		function cambiarSplash(){
+
+		function cambiarSplash() {
 			secciones[1].className = "splash oculto";
 			secciones[2].className = "home";
 		}
-	
+
 		//https://developer.mozilla.org/es/docs/Web/API/Element/classList
 		//https://www.youtube.com/watch?v=2z0wMNHPbzk
-		function cambiarSeccion(id_seccion){
-	
+		function cambiarSeccion(id_seccion) {
+
 			for (var i in secciones) {
 				secciones[i].classList.add("oculto");
 			}
-	
+
 			secciones[id_seccion].classList.add("animated");
 			secciones[id_seccion].classList.add("headShake");
 			secciones[id_seccion].classList.remove("oculto");
 		}
-		</script>
+	</script>
 </head>
+
 <body>
 	<!-- Splash -->
 	<section id="seccion_1" class="splash">
@@ -136,23 +147,25 @@ span{
 	<!-- Home -->
 	<section id="seccion_2" class="home">
 		<div>
-			<img src="img/estrellas2.PNG" id="estrellas2" >		
-			<img src="img/mounstroVerde.PNG" id="mounstroVerde">	
+			<img src="https://i.ibb.co/YQZB8xc/estrellas2.png" alt="estrellas2" id="estrellas2">
+			<img src="https://i.ibb.co/JjFTKYR/monstruo-Verde.png" alt="monstruo-Verde" id="monstruoVerde">
 		</div>
-		
+
 		<div id="btnsMenu">
-			<img src="img/btnJugar.PNG" class="btnMenu" onclick="cambiarSeccion(3)">
-			<img src="img/btnInstrucciones.PNG" class="btnMenu" onclick="cambiarSeccion(5)">
-			<img src="img/btnCreditos.PNG" class="btnMenu" onclick="cambiarSeccion(4)">
+			<img src="https://i.ibb.co/6NgZYk7/btnJugar.png" alt="btnJugar" class="btnMenu" onclick="cambiarSeccion(3)">
+			<img src="https://i.ibb.co/QcXF2KW/btn-Instrucciones.png" alt="btn-Instrucciones" class="btnMenu"
+				onclick="cambiarSeccion(5)">
+			<img src="https://i.ibb.co/5BqfGgm/btn-Creditos.png" alt="btn-Creditos" class="btnMenu"
+				onclick="cambiarSeccion(4)">
 		</div>
 		<div>
-			<img src="img/mounstroRojo.PNG" id="mounstroRojo">
-			<img src="img/estrellas1.PNG" id="estrellas1">
+			<img src="https://i.ibb.co/nm9vnkk/monstruo-Rojo.png" alt="monstruo-Rojo" id="monstruoRojo">
+			<img src="https://i.ibb.co/1Q801tN/estrellas1.png" alt="estrellas1" id="estrellas1">
 		</div>
-		
-		
-		
-	
+
+
+
+
 	</section>
 	<!-- Juego -->
 	<section id="seccion_3" class="juego">
@@ -173,23 +186,30 @@ span{
 		<br>
 		<br>
 		<h1>Créditos - Estudiantes</h1>
-        <br>
-        <div id="integrantes">
-		<img src="http://icons.iconarchive.com/icons/hopstarter/superhero-avatar/64/Avengers-Black-Widow-icon.png" alt="">&nbsp;&nbsp;
-		<span>Sebastián Figueredo / Diseñador</span> <br>
-		<img src="http://icons.iconarchive.com/icons/hopstarter/superhero-avatar/64/Avengers-Iron-Man-icon.png" alt="">&nbsp;&nbsp;
-		<span>David Velásquez / Ingeniero</span> <br>
-		<img src="http://icons.iconarchive.com/icons/hopstarter/superhero-avatar/64/Avengers-Thor-icon.png" alt="">&nbsp;&nbsp;
-        <span>Diana Rodríguez / Ingeniero</span>
-        </div>
+		<br>
+		<div id="integrantes">
+			<img src="http://icons.iconarchive.com/icons/hopstarter/superhero-avatar/64/Avengers-Black-Widow-icon.png"
+				alt="">&nbsp;&nbsp;
+			<span>Sebastián Figueredo / Diseñador</span> <br>
+			<img src="http://icons.iconarchive.com/icons/hopstarter/superhero-avatar/64/Avengers-Iron-Man-icon.png"
+				alt="">&nbsp;&nbsp;
+			<span>David Velásquez / Ingeniero</span> <br>
+			<img src="http://icons.iconarchive.com/icons/hopstarter/superhero-avatar/64/Avengers-Thor-icon.png"
+				alt="">&nbsp;&nbsp;
+			<span>Diana Rodríguez / Ingeniero</span>
+		</div>
 	</section>
 	<!-- Objetivo -->
-	<section id="seccion_5" class="objetivo" >
+	<section id="seccion_5" class="objetivo">
 		<a href="#home" class="boton volver" onclick="cambiarSeccion(2)">&lt;</a>
 		<h1>Objetivo</h1>
 		<p>
-			Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti, explicabo ducimus voluptates suscipit consequatur eligendi eos, hic aperiam sit! Recusandae explicabo provident sapiente beatae nam soluta ab minima omnis sed! <br>
-			Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias repellendus aliquam odit, iusto earum ipsum. Repudiandae deleniti corporis, praesentium accusantium aspernatur temporibus quisquam minus, soluta provident molestiae. Tempore, aliquid, fugit. <br>
+			Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti, explicabo ducimus voluptates suscipit
+			consequatur eligendi eos, hic aperiam sit! Recusandae explicabo provident sapiente beatae nam soluta ab
+			minima omnis sed! <br>
+			Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias repellendus aliquam odit, iusto earum
+			ipsum. Repudiandae deleniti corporis, praesentium accusantium aspernatur temporibus quisquam minus, soluta
+			provident molestiae. Tempore, aliquid, fugit. <br>
 
 		</p>
 		<a href="#como_jugar" class="boton">&gt;</a>
@@ -199,8 +219,12 @@ span{
 		<a href="#home" class="boton volver">&lt;</a>
 		<h1>Cómo Jugar</h1>
 		<p>
-			Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti, explicabo ducimus voluptates suscipit consequatur eligendi eos, hic aperiam sit! Recusandae explicabo provident sapiente beatae nam soluta ab minima omnis sed! <br>
-			Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias repellendus aliquam odit, iusto earum ipsum. Repudiandae deleniti corporis, praesentium accusantium aspernatur temporibus quisquam minus, soluta provident molestiae. Tempore, aliquid, fugit. <br>
+			Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti, explicabo ducimus voluptates suscipit
+			consequatur eligendi eos, hic aperiam sit! Recusandae explicabo provident sapiente beatae nam soluta ab
+			minima omnis sed! <br>
+			Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias repellendus aliquam odit, iusto earum
+			ipsum. Repudiandae deleniti corporis, praesentium accusantium aspernatur temporibus quisquam minus, soluta
+			provident molestiae. Tempore, aliquid, fugit. <br>
 
 		</p>
 		<a href="#objetivo" class="boton">&lt;</a>
