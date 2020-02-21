@@ -8,7 +8,7 @@ section{
     width:1080px;
     height:2160px;
     text-align: center;
-    background: black;
+    background:#102439;
     color: white;
     
 }
@@ -48,6 +48,26 @@ h1{
     height: 30%;
     width: 60%;
     padding-top: 20%;
+}
+.btnMenu{
+	width:60%;
+	padding: 5%;
+}
+#mounstroVerde{
+	width: 35%;
+	margin-left: 15%;
+	margin-bottom: 190px;
+}
+#mounstroRojo{
+	width: 350px;
+	margin-right: 15%;
+}
+#estrellas1{
+	width: 34%;
+	
+}
+#estrellas2{
+	width: 35%;
 }
 
 a{
@@ -115,14 +135,24 @@ span{
 	</section>
 	<!-- Home -->
 	<section id="seccion_2" class="home">
-		<br>
-		<h1>Nombre del juego</h1>
-		<img src="http://icons.iconarchive.com/icons/sonya/swarm/128/ivoted-2014-icon.png" alt="" class="imagen">
-		<br>
-		<br>
-		<a href="#juego" onclick="cambiarSeccion(3)">Juego</a><br><br>
-		<a href="#objetivo" onclick="cambiarSeccion(5)">Instrucciones</a><br><br>
-		<a href="#creditos" onclick="cambiarSeccion(4)">Créditos</a><br>
+		<div>
+			<img src="img/estrellas2.PNG" id="estrellas2" >		
+			<img src="img/mounstroVerde.PNG" id="mounstroVerde">	
+		</div>
+		
+		<div id="btnsMenu">
+			<img src="img/btnJugar.PNG" class="btnMenu" onclick="cambiarSeccion(3)">
+			<img src="img/btnInstrucciones.PNG" class="btnMenu" onclick="cambiarSeccion(5)">
+			<img src="img/btnCreditos.PNG" class="btnMenu" onclick="cambiarSeccion(4)">
+		</div>
+		<div>
+			<img src="img/mounstroRojo.PNG" id="mounstroRojo">
+			<img src="img/estrellas1.PNG" id="estrellas1">
+		</div>
+		
+		
+		
+	
 	</section>
 	<!-- Juego -->
 	<section id="seccion_3" class="juego">
