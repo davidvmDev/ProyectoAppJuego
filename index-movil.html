@@ -18,18 +18,9 @@
 			text-align: center;
 			background: #102439;
 			color: white;
-			position: relative;
-		}
-
-		#splash {}
-
-		#home {}
-
-		#juego {}
-
-		#objetivo {}
-
-		#creditos {}
+			position: absolute;
+			
+		}	
 
 		#como_jugar {
 			margin: 25px;
@@ -59,29 +50,25 @@
 		}
 
 		.btnMenu {
-			width: 60%;
-			padding: 5%;
+			width: 220px;
+			height: 70px;
+			margin: 20px;
 		}
-
-		#monstruoVerde {
-			width: 35%;
-			margin-left: 15%;
-			margin-bottom: 190px;
-		}
-
-		#monstruoRojo {
-			width: 350px;
-			margin-right: 15%;
-		}
-
-		#estrellas1 {
-			width: 34%;
+		#btnsMenu{
+			
+			
 
 		}
 
-		#estrellas2 {
-			width: 35%;
+		.monstruoInicio {
+			width: 102px;		
+			height: 153px;
+			background-color: red;
+			display: inline-block;
+			margin: 15px;			
 		}
+
+		
 
 		a {
 			font-size: 70px;
@@ -103,22 +90,17 @@
 		.oculto {
 			display: none;
 		}
-		#prueba{
-			position: absolute;
-			top:0px;
-			left: 0px;
-			background-color: rebeccapurple;
-			width: 100px;
-			height: 50px;
+		/*logica*/
+		.monstruo{
+			height:95px ;
+			width: 65px;
+			background-color: blue;
+			display:inline-block;
+			margin: 5px;
+			text-align:center;
+
 		}
-		#prueba2{
-			position: absolute;
-			top:0px;
-			left: 0px;
-			background-color: red;
-			width: 100px;
-			height: 50px;
-		}
+		
 	</style>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
 
@@ -146,8 +128,7 @@
 			secciones[2].className = "home";
 		}
 
-		//https://developer.mozilla.org/es/docs/Web/API/Element/classList
-		//https://www.youtube.com/watch?v=2z0wMNHPbzk
+
 		function cambiarSeccion(id_seccion) {
 
 			for (var i in secciones) {
@@ -157,6 +138,15 @@
 			secciones[id_seccion].classList.add("animated");
 			secciones[id_seccion].classList.add("headShake");
 			secciones[id_seccion].classList.remove("oculto");
+		}
+		var monstruos=[];
+		
+
+		function iniciarTablero(){
+
+
+
+
 		}
 	</script>
 </head>
@@ -170,38 +160,53 @@
 	</section>
 	<!-- Home -->
 	<section id="seccion_2" class="home">
-		<button id="prueba"></button>
-		<button id="prueba2"></button>
-<!-- 		<div>
-			<img src="https://i.ibb.co/YQZB8xc/estrellas2.png" alt="estrellas2" id="estrellas2">
-			<img src="https://i.ibb.co/JjFTKYR/monstruo-Verde.png" alt="monstruo-Verde" id="monstruoVerde">
+		
+		<div>
+			<div id="estrellas2" class="monstruoInicio"></div>
+			<div id="monstruoVerde" class="monstruoInicio"></div>
 		</div>
 
 		<div id="btnsMenu">
-			<img src="https://i.ibb.co/6NgZYk7/btnJugar.png" alt="btnJugar" class="btnMenu" onclick="cambiarSeccion(3)">
-			<img src="https://i.ibb.co/QcXF2KW/btn-Instrucciones.png" alt="btn-Instrucciones" class="btnMenu"
-				onclick="cambiarSeccion(5)">
-			<img src="https://i.ibb.co/5BqfGgm/btn-Creditos.png" alt="btn-Creditos" class="btnMenu"
-				onclick="cambiarSeccion(4)">
+			<button class="btnMenu" onclick="cambiarSeccion(3)"></button>
+			<button class="btnMenu" onclick="cambiarSeccion(5)"></button>
+			<button class="btnMenu" onclick="cambiarSeccion(4)"></button>
 		</div>
 		<div>
-			<img src="https://i.ibb.co/nm9vnkk/monstruo-Rojo.png" alt="monstruo-Rojo" id="monstruoRojo">
-			<img src="https://i.ibb.co/1Q801tN/estrellas1.png" alt="estrellas1" id="estrellas1">
-		</div> -->
+			<div  id="monstruoRojo" class="monstruoInicio"></div>
+			<div  id="estrellas1" class="monstruoInicio"></div>
+		</div> 
 	
 	</section>
 	<!-- Juego -->
-	<section id="seccion_3" class="juego oculto">
-		<a href="#home" class="boton volver" onclick="cambiarSeccion(2)">&lt;</a>
-		<br>
-		<h1>Juego</h1>
-		<br>
-		<img src="http://icons.iconarchive.com/icons/sonya/swarm/128/Mona-Lisa-icon.png" alt="">
-		<br>
-		<br>
-		<a href="#">David Velásquez</a><br><br>
-		<a href="#">Sebastián Figueredo</a><br><br>
-		<a href="#">Diana Rodríguez</a>&nbsp;&nbsp;
+	<section id="seccion_3" class="juego oculto">	
+		<div id="tablero">
+		<img src="img/ej.PNG" class="monstruo">
+		<img src="img/ej.PNG" class="monstruo">
+		<img src="img/ej.PNG" class="monstruo">
+		<img src="img/ej.PNG" class="monstruo">
+		<img src="img/ej.PNG" class="monstruo"><br>
+		<img src="img/ej.PNG" class="monstruo">
+		<img src="img/ej.PNG" class="monstruo">
+		<img src="img/ej.PNG" class="monstruo">
+		<img src="img/ej.PNG" class="monstruo">
+		<img src="img/ej.PNG" class="monstruo"><br>
+		<img src="img/ej.PNG" class="monstruo">
+		<img src="img/ej.PNG" class="monstruo">
+		<img src="img/ej.PNG" class="monstruo">
+		<img src="img/ej.PNG" class="monstruo">
+		<img src="img/ej.PNG" class="monstruo"><br>
+		<img src="img/ej.PNG" class="monstruo">
+		<img src="img/ej.PNG" class="monstruo">
+		<img src="img/ej.PNG" class="monstruo">
+		<img src="img/ej.PNG" class="monstruo">
+		<img src="img/ej.PNG" class="monstruo"><br>
+		<img src="img/ej.PNG" class="monstruo">
+		<img src="img/ej.PNG" class="monstruo">
+		<img src="img/ej.PNG" class="monstruo">
+		<img src="img/ej.PNG" class="monstruo">
+		<img src="img/ej.PNG" class="monstruo">
+		</div>
+	
 	</section>
 	<!-- Créditos / Autores -->
 	<section id="seccion_4" class="creditos oculto">
