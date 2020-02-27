@@ -13,6 +13,7 @@ function inicializarReferencias() {
     secciones[4] = document.getElementById("seccion_4");
     secciones[5] = document.getElementById("seccion_5");
     secciones[6] = document.getElementById("seccion_6");
+    secciones[7] = document.getElementById("seccion_7");
 }
 
 

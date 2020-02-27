@@ -25,10 +25,10 @@
 			<div id="monstruoVerde" class="monstruoInicio"></div>
 		</div>
 
-		<div id="btnsMenu">
-			<button class="btnMenu" onclick="cambiarSeccion(3)"></button>
-			<button class="btnMenu" onclick="cambiarSeccion(5)"></button>
-			<button class="btnMenu" onclick="cambiarSeccion(4)"></button>
+		<div >
+			<button class="btnMenu" onclick="cambiarSeccion(3)">Jugar</button>
+			<button class="btnMenu" onclick="cambiarSeccion(7)">Instrucciones</button>
+			<button class="btnMenu" onclick="cambiarSeccion(4)">Creditos</button>
 		</div>
 		<div>
 			<div id="monstruoRojo" class="monstruoInicio"></div>
@@ -39,7 +39,7 @@
 	<!-- Juego -->
 	<section id="seccion_3" class="juego oculto">
 		<div class="nose">
-				<div class="btnVolver"></div>
+			<div class="btnVolver" onclick="cambiarSeccion(2)"></div>
 			<div class="tiempos">
 				<div id="reloj"></div>
 				<p id="tiempo">15</h2>
@@ -92,7 +92,7 @@
 	<!-- Créditos / Autores -->
 	<section id="seccion_4" class="creditos oculto">
 		<div class="titulo">
-			<div class="btnVolver"></div>
+			<div class="btnVolver" onclick="cambiarSeccion(2)"></div>
 			<h1>Creditos</h1>
 		</div>
 		<div class="integrantes">
@@ -105,7 +105,7 @@
 				<div class="integrante"></div>
 				<p>1</p>
 			</div>
-			<div class="interno"> 
+			<div class="interno">
 				<div class="integrante"></div>
 				<p>1</p>
 			</div>
@@ -113,33 +113,45 @@
 	</section>
 	<!-- Objetivo -->
 	<section id="seccion_5" class="objetivo oculto">
-		<a href="#home" class="boton volver" onclick="cambiarSeccion(2)">&lt;</a>
-		<h1>Objetivo</h1>
-		<p>
-			Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti, explicabo ducimus voluptates suscipit
-			consequatur eligendi eos, hic aperiam sit! Recusandae explicabo provident sapiente beatae nam soluta ab
-			minima omnis sed! <br>
-			Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias repellendus aliquam odit, iusto earum
-			ipsum. Repudiandae deleniti corporis, praesentium accusantium aspernatur temporibus quisquam minus, soluta
-			provident molestiae. Tempore, aliquid, fugit. <br>
-
-		</p>
-		<a href="#como_jugar" class="boton">&gt;</a>
+		<div class="titulo">
+			<div class="btnVolver" onclick="cambiarSeccion(2)"></div>
+			<h1>Objetivo</h1>
+		</div>
+		<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum sapiente at doloremque ab quas officiis
+			dolorum in voluptate ipsam voluptates dolor culpa mollitia aspernatur quidem numquam eaque, error beatae!
+			Consequatur.</p>
 	</section>
-	<!-- Cómo Jugar -->
+	<!-- Personajes -->
 	<section id="seccion_6" class="oculto">
-		<a href="#home" class="boton volver">&lt;</a>
-		<h1>Cómo Jugar</h1>
-		<p>
-			Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti, explicabo ducimus voluptates suscipit
-			consequatur eligendi eos, hic aperiam sit! Recusandae explicabo provident sapiente beatae nam soluta ab
-			minima omnis sed! <br>
-			Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias repellendus aliquam odit, iusto earum
-			ipsum. Repudiandae deleniti corporis, praesentium accusantium aspernatur temporibus quisquam minus, soluta
-			provident molestiae. Tempore, aliquid, fugit. <br>
+		<div class="titulo">
+			<div class="btnVolver" onclick="cambiarSeccion(2)"></div>
+			<h1>Personajes</h1>
+		</div>
+		<div class="integrantes">
+			<div class="interno">
+				<div class="integrante"></div>
+				<p>1</p>
+			</div>
 
-		</p>
-		<a href="#objetivo" class="boton">&lt;</a>
+			<div class="interno">
+				<div class="integrante"></div>
+				<p>1</p>
+			</div>
+			<div class="interno">
+				<div class="integrante"></div>
+				<p>1</p>
+			</div>
+		</div>
+
+	</section>
+	<!-- Menu -->
+	<section id="seccion_7" class="oculto">
+		<div class="btnVolver" onclick="cambiarSeccion(2)"></div>
+		<div id="btnsMenu">
+			<button class="btnMenu" onclick="cambiarSeccion(5)" >Objetivo</button>
+			<button class="btnMenu" onclick="cambiarSeccion(6)" >Personajes</button>
+		</div>
+
 	</section>
 </body>
 <script type="text/javascript" src="js/main.js"></script>

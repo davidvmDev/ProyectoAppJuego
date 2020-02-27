@@ -47,7 +47,9 @@ section {
     margin: 20px;
 }
 
-#btnsMenu {}
+#btnsMenu {
+    margin-top: 60%;
+}
 
 .monstruoInicio {
     width: 128px;
