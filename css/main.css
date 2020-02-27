@@ -31,9 +31,9 @@ section {
     line-height: 140px;
 }
 
-h1 {
+/*h1 {
     font-size: 120px;
-}
+}*/
 
 .imagen {
     height: 30%;
@@ -148,4 +148,29 @@ span {
 .rondas{
     float: left;
     margin-left: 60px;
+}
+/*Creditos*/
+.integrante{
+    width: 150px;
+    height: 150px;
+    background-color: white;
+    margin:30px;
+}
+.integrantes{
+    margin-top: 10px;
+    margin-left: 10px;
+    
+}
+.integrantes p{
+   margin-top:25%;
+}
+.interno{
+    display: flex;
+}
+.titulo h1{
+    margin-top: 35px;
+    margin-left: 100px;
+}
+.titulo{
+    display: flex;
 }
