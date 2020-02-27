@@ -1,0 +1,151 @@
+body {
+    margin: 0;
+}
+
+section {
+    /*width: 1080px;
+    height: 1960px;*/
+    width: 424px;
+    height: 776px;
+    text-align: center;
+    background: #102439;
+    color: white;
+    position: absolute;
+
+}
+
+#como_jugar {
+    margin: 25px;
+    text-align: left;
+}
+
+.boton {
+    background-color: Navy;
+    color: white;
+    padding: 10px;
+    text-decoration: none;
+}
+
+.volver {
+    margin-left: -980px;
+    line-height: 140px;
+}
+
+h1 {
+    font-size: 120px;
+}
+
+.imagen {
+    height: 30%;
+    width: 60%;
+    padding-top: 20%;
+}
+
+.btnMenu {
+    width: 275px;
+    height: 88px;
+    margin: 20px;
+}
+
+#btnsMenu {}
+
+.monstruoInicio {
+    width: 128px;
+    height: 194px;
+    background-color: red;
+    display: inline-block;
+    margin: 0 20px 0 20px;
+}
+
+
+
+a {
+    font-size: 70px;
+}
+
+/*p {
+    font-size: 70px;
+    margin: 50px;
+}*/
+
+span {
+    font-size: 70px;
+}
+
+#integrantes {
+    margin-top: 20px;
+}
+
+.oculto {
+    display: none;
+}
+
+/*logica*/
+.tablero {
+    display: grid;
+    grid-template-columns: 65px 65px 65px 65px 65px;
+    grid-gap: 10px;
+    padding: 10px;
+    margin-top: 30%;
+    margin-left: 20px;
+    margin-right: 20px;
+    background-color: yellow;
+
+}
+
+.tablero>img {
+    height: 95px;
+    width: 65px;
+    background-color: blue;
+}
+
+.btnVolver {
+    width: 70px;
+    height: 70px;
+    background-color: violet;
+    margin: 15px;
+    float: left;
+}
+
+#reloj {
+    height: 45px;
+    width: 45px;
+    background-color: wheat;
+    display: inline-block;
+}
+
+.nose {
+    position: relative;
+}
+.puntuacion{
+    float: right;
+    margin-right: 15px;
+    margin-top: 10px;
+    
+}
+.tiempos{
+    display: flex;
+    margin-left: 45%;
+    margin-top:25px;
+    position: absolute;
+
+}
+#tiempo{
+    margin-left: 10px;
+}
+.vidas{
+    background-color: red;
+    height: 50px;
+    width: 50px;
+    margin: 5px;
+}
+.corazonesVidas{
+    display: inline-flex;
+    float:right;
+    margin-top: 10px;
+    margin-right: 15px;
+}
+.rondas{
+    float: left;
+    margin-left: 60px;
+}
