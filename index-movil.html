@@ -6,149 +6,8 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 
 	<title>Single App ejemplo</title>
-	<style>
-		body{
-			margin: 0;
-		}
-		section {
-			/*width: 1080px;
-			height: 1960px;*/
-			width: 424px;
-			height: 776px;
-			text-align: center;
-			background: #102439;
-			color: white;
-			position: absolute;
-			
-		}	
-
-		#como_jugar {
-			margin: 25px;
-			text-align: left;
-		}
-
-		.boton {
-			background-color: Navy;
-			color: white;
-			padding: 10px;
-			text-decoration: none;
-		}
-
-		.volver {
-			margin-left: -980px;
-			line-height: 140px;
-		}
-
-		h1 {
-			font-size: 120px;
-		}
-
-		.imagen {
-			height: 30%;
-			width: 60%;
-			padding-top: 20%;
-		}
-
-		.btnMenu {
-			width: 220px;
-			height: 70px;
-			margin: 20px;
-		}
-		#btnsMenu{
-			
-			
-
-		}
-
-		.monstruoInicio {
-			width: 102px;		
-			height: 153px;
-			background-color: red;
-			display: inline-block;
-			margin: 15px;			
-		}
-
-		
-
-		a {
-			font-size: 70px;
-		}
-
-		p {
-			font-size: 70px;
-			margin: 50px;
-		}
-
-		span {
-			font-size: 70px;
-		}
-
-		#integrantes {
-			margin-top: 20px;
-		}
-
-		.oculto {
-			display: none;
-		}
-		/*logica*/
-		.monstruo{
-			height:95px ;
-			width: 65px;
-			background-color: blue;
-			display:inline-block;
-			margin: 5px;
-			text-align:center;
-
-		}
-		
-	</style>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
-
-	<script>
-		var secciones = [];
-		var tiempo_splash = 2000;
-
-		window.onload = function () {
-			inicializarReferencias();
-			//setTimeout(cambiarSplash, tiempo_splash);
-		}
-
-		function inicializarReferencias() {
-			secciones[1] = document.getElementById("seccion_1");
-			secciones[2] = document.getElementById("seccion_2");
-			secciones[3] = document.getElementById("seccion_3");
-			secciones[4] = document.getElementById("seccion_4");
-			secciones[5] = document.getElementById("seccion_5");
-			secciones[6] = document.getElementById("seccion_6");
-		}
-
-
-		function cambiarSplash() {
-			secciones[1].className = "splash oculto";
-			secciones[2].className = "home";
-		}
-
-
-		function cambiarSeccion(id_seccion) {
-
-			for (var i in secciones) {
-				secciones[i].classList.add("oculto");
-			}
-
-			secciones[id_seccion].classList.add("animated");
-			secciones[id_seccion].classList.add("headShake");
-			secciones[id_seccion].classList.remove("oculto");
-		}
-		var monstruos=[];
-		
-
-		function iniciarTablero(){
-
-
-
-
-		}
-	</script>
+	<link rel="stylesheet" href="css/main.css">
 </head>
 
 <body>
@@ -160,103 +19,141 @@
 	</section>
 	<!-- Home -->
 	<section id="seccion_2" class="home">
-		
+
 		<div>
 			<div id="estrellas2" class="monstruoInicio"></div>
 			<div id="monstruoVerde" class="monstruoInicio"></div>
 		</div>
 
-		<div id="btnsMenu">
-			<button class="btnMenu" onclick="cambiarSeccion(3)"></button>
-			<button class="btnMenu" onclick="cambiarSeccion(5)"></button>
-			<button class="btnMenu" onclick="cambiarSeccion(4)"></button>
+		<div >
+			<button class="btnMenu" onclick="cambiarSeccion(3)">Jugar</button>
+			<button class="btnMenu" onclick="cambiarSeccion(7)">Instrucciones</button>
+			<button class="btnMenu" onclick="cambiarSeccion(4)">Creditos</button>
 		</div>
 		<div>
-			<div  id="monstruoRojo" class="monstruoInicio"></div>
-			<div  id="estrellas1" class="monstruoInicio"></div>
-		</div> 
-	
+			<div id="monstruoRojo" class="monstruoInicio"></div>
+			<div id="estrellas1" class="monstruoInicio"></div>
+		</div>
+
 	</section>
 	<!-- Juego -->
-	<section id="seccion_3" class="juego oculto">	
-		<div id="tablero">
-		<img src="img/ej.PNG" class="monstruo">
-		<img src="img/ej.PNG" class="monstruo">
-		<img src="img/ej.PNG" class="monstruo">
-		<img src="img/ej.PNG" class="monstruo">
-		<img src="img/ej.PNG" class="monstruo"><br>
-		<img src="img/ej.PNG" class="monstruo">
-		<img src="img/ej.PNG" class="monstruo">
-		<img src="img/ej.PNG" class="monstruo">
-		<img src="img/ej.PNG" class="monstruo">
-		<img src="img/ej.PNG" class="monstruo"><br>
-		<img src="img/ej.PNG" class="monstruo">
-		<img src="img/ej.PNG" class="monstruo">
-		<img src="img/ej.PNG" class="monstruo">
-		<img src="img/ej.PNG" class="monstruo">
-		<img src="img/ej.PNG" class="monstruo"><br>
-		<img src="img/ej.PNG" class="monstruo">
-		<img src="img/ej.PNG" class="monstruo">
-		<img src="img/ej.PNG" class="monstruo">
-		<img src="img/ej.PNG" class="monstruo">
-		<img src="img/ej.PNG" class="monstruo"><br>
-		<img src="img/ej.PNG" class="monstruo">
-		<img src="img/ej.PNG" class="monstruo">
-		<img src="img/ej.PNG" class="monstruo">
-		<img src="img/ej.PNG" class="monstruo">
-		<img src="img/ej.PNG" class="monstruo">
+	<section id="seccion_3" class="juego oculto">
+		<div class="nose">
+			<div class="btnVolver" onclick="cambiarSeccion(2)"></div>
+			<div class="tiempos">
+				<div id="reloj"></div>
+				<p id="tiempo">15</h2>
+			</div>
+			<div class="puntuacion">
+				<p id="puntaje">Puntaje</p>
+				<p id="valorPuntaje">0000000</p>
+			</div>
 		</div>
-	
+		<div class="tablero">
+			<img src="img/ej.PNG">
+			<img src="img/ej.PNG">
+			<img src="img/ej.PNG">
+			<img src="img/ej.PNG">
+			<img src="img/ej.PNG">
+			<img src="img/ej.PNG">
+			<img src="img/ej.PNG">
+			<img src="img/ej.PNG">
+			<img src="img/ej.PNG">
+			<img src="img/ej.PNG">
+			<img src="img/ej.PNG">
+			<img src="img/ej.PNG">
+			<img src="img/ej.PNG">
+			<img src="img/ej.PNG">
+			<img src="img/ej.PNG">
+			<img src="img/ej.PNG">
+			<img src="img/ej.PNG">
+			<img src="img/ej.PNG">
+			<img src="img/ej.PNG">
+			<img src="img/ej.PNG">
+			<img src="img/ej.PNG">
+			<img src="img/ej.PNG">
+			<img src="img/ej.PNG">
+			<img src="img/ej.PNG">
+			<img src="img/ej.PNG">
+		</div>
+		<div>
+			<div class="rondas">
+				<p id="ronda">ronda</p>
+				<p id="valorRonda">01</p>
+			</div>
+			<div class="corazonesVidas">
+				<div class="vidas"></div>
+				<div class="vidas"></div>
+				<div class="vidas"></div>
+			</div>
+		</div>
+
 	</section>
 	<!-- Créditos / Autores -->
 	<section id="seccion_4" class="creditos oculto">
-		<a href="#home" class="boton volver" onclick="cambiarSeccion(2)">&lt;</a>
-		<br>
-		<br>
-		<h1>Créditos - Estudiantes</h1>
-		<br>
-		<div id="integrantes">
-			<img src="http://icons.iconarchive.com/icons/hopstarter/superhero-avatar/64/Avengers-Black-Widow-icon.png"
-				alt="">&nbsp;&nbsp;
-			<span>Sebastián Figueredo / Diseñador</span> <br>
-			<img src="http://icons.iconarchive.com/icons/hopstarter/superhero-avatar/64/Avengers-Iron-Man-icon.png"
-				alt="">&nbsp;&nbsp;
-			<span>David Velásquez / Ingeniero</span> <br>
-			<img src="http://icons.iconarchive.com/icons/hopstarter/superhero-avatar/64/Avengers-Thor-icon.png"
-				alt="">&nbsp;&nbsp;
-			<span>Diana Rodríguez / Ingeniero</span>
+		<div class="titulo">
+			<div class="btnVolver" onclick="cambiarSeccion(2)"></div>
+			<h1>Creditos</h1>
+		</div>
+		<div class="integrantes">
+			<div class="interno">
+				<div class="integrante"></div>
+				<p>1</p>
+			</div>
+
+			<div class="interno">
+				<div class="integrante"></div>
+				<p>1</p>
+			</div>
+			<div class="interno">
+				<div class="integrante"></div>
+				<p>1</p>
+			</div>
 		</div>
 	</section>
 	<!-- Objetivo -->
 	<section id="seccion_5" class="objetivo oculto">
-		<a href="#home" class="boton volver" onclick="cambiarSeccion(2)">&lt;</a>
-		<h1>Objetivo</h1>
-		<p>
-			Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti, explicabo ducimus voluptates suscipit
-			consequatur eligendi eos, hic aperiam sit! Recusandae explicabo provident sapiente beatae nam soluta ab
-			minima omnis sed! <br>
-			Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias repellendus aliquam odit, iusto earum
-			ipsum. Repudiandae deleniti corporis, praesentium accusantium aspernatur temporibus quisquam minus, soluta
-			provident molestiae. Tempore, aliquid, fugit. <br>
-
-		</p>
-		<a href="#como_jugar" class="boton">&gt;</a>
+		<div class="titulo">
+			<div class="btnVolver" onclick="cambiarSeccion(2)"></div>
+			<h1>Objetivo</h1>
+		</div>
+		<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum sapiente at doloremque ab quas officiis
+			dolorum in voluptate ipsam voluptates dolor culpa mollitia aspernatur quidem numquam eaque, error beatae!
+			Consequatur.</p>
 	</section>
-	<!-- Cómo Jugar -->
+	<!-- Personajes -->
 	<section id="seccion_6" class="oculto">
-		<a href="#home" class="boton volver">&lt;</a>
-		<h1>Cómo Jugar</h1>
-		<p>
-			Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti, explicabo ducimus voluptates suscipit
-			consequatur eligendi eos, hic aperiam sit! Recusandae explicabo provident sapiente beatae nam soluta ab
-			minima omnis sed! <br>
-			Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias repellendus aliquam odit, iusto earum
-			ipsum. Repudiandae deleniti corporis, praesentium accusantium aspernatur temporibus quisquam minus, soluta
-			provident molestiae. Tempore, aliquid, fugit. <br>
+		<div class="titulo">
+			<div class="btnVolver" onclick="cambiarSeccion(2)"></div>
+			<h1>Personajes</h1>
+		</div>
+		<div class="integrantes">
+			<div class="interno">
+				<div class="integrante"></div>
+				<p>1</p>
+			</div>
 
-		</p>
-		<a href="#objetivo" class="boton">&lt;</a>
+			<div class="interno">
+				<div class="integrante"></div>
+				<p>1</p>
+			</div>
+			<div class="interno">
+				<div class="integrante"></div>
+				<p>1</p>
+			</div>
+		</div>
+
+	</section>
+	<!-- Menu -->
+	<section id="seccion_7" class="oculto">
+		<div class="btnVolver" onclick="cambiarSeccion(2)"></div>
+		<div id="btnsMenu">
+			<button class="btnMenu" onclick="cambiarSeccion(5)" >Objetivo</button>
+			<button class="btnMenu" onclick="cambiarSeccion(6)" >Personajes</button>
+		</div>
+
 	</section>
 </body>
+<script type="text/javascript" src="js/main.js"></script>
 
 </html>
