@@ -3,13 +3,12 @@ body {
 	margin: 0;
 	width: 424px;
 	height: 776px;
-    position: relative;
-    font-family: 'Press Start 2P', Arial, Helvetica, sans-serif;
+	position: relative;
+	font-family: 'Press Start 2P', Arial, Helvetica, sans-serif;
 }
 
-.box {
-	background-color: #daa520;
-    position: fixed;
+h3{
+    color: yellow;
 }
 
 section {
@@ -20,14 +19,18 @@ section {
 	text-align: center;
 	background: #102439;
 	color: white;
-    position: absolute;
-    
+	position: absolute;
 }
+
+/*.box {
+	background-color: #daa520;
+	position: fixed;
+}*/
 
 .btnMenu {
 	width: 275px;
 	height: 88px;
-    margin: 20px;
+	margin: 20px;
 }
 
 .btnVolver {
@@ -37,19 +40,26 @@ section {
 	float: left;
 }
 
+.header {
+	display: flex;
+}
+
 
 /*Splash*/
 
-
 /*Inicio*/
 .alienInicio {
-	width: 128px;
+	width: 150px;
 	height: 196px;
 	display: inline-block;
 	margin: 0 20px 0 20px;
 }
 
 /*Jugar*/
+.nose {
+	position: relative;
+}
+
 #reloj {
 	height: 45px;
 	width: 45px;
@@ -64,17 +74,48 @@ section {
 
 /*Instrucciones*/
 
-
 /*Objetivo*/
 
-
 /*Personajes*/
+.personajes p,h2{
+    margin-left: 15px;
+}
 
+.personajes .personaje {
+	margin: 60px;
+	display: flex;
+	align-items: center;
+}
+
+.alienPersonaje {
+	width: 80px;
+	height: 120px;
+}
+
+#raro{
+    color: blue;
+}
+
+#comun{
+    color: green;
+}
+
+#epico{
+    color: red;
+}
 
 /*Créditos*/
+.integrantes p,h2{
+    margin-left: 15px;
+}
 
+.integrantes .integrante {
+	margin: 40px 25px 25px 25px;
+	display: flex;
+	align-items: center;
+}
 
-
+/*Para organizar*/
 #como_jugar {
 	margin: 25px;
 	text-align: left;
@@ -102,13 +143,9 @@ section {
 	padding-top: 20%;
 }
 
-
-
 #btnsMenu {
 	margin-top: 60%;
 }
-
-
 
 a {
 	font-size: 70px;
@@ -149,8 +186,6 @@ span {
 	background-color: blue;
 }
 
-
-
 .reloj {
 	height: 45px;
 	width: 45px;
@@ -158,9 +193,6 @@ span {
 	display: inline-block;
 }
 
-.nose {
-	position: relative;
-}
 .puntuacion {
 	float: right;
 	margin-right: 15px;
@@ -187,26 +219,8 @@ span {
 	margin-left: 60px;
 }
 /*Creditos*/
-.integrante {
-	width: 150px;
-	height: 150px;
-	background-color: white;
-	margin: 30px;
-}
-.integrantes {
-	margin-top: 10px;
-	margin-left: 10px;
-}
-.integrantes p {
-	margin-top: 25%;
-}
-.interno {
-	display: flex;
-}
+
 .titulo h1 {
 	margin-top: 35px;
 	margin-left: 100px;
-}
-.titulo {
-	display: flex;
 }
