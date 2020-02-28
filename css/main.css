@@ -1,10 +1,10 @@
-
-
+/*General*/
 body {
 	margin: 0;
 	width: 424px;
 	height: 776px;
-	position: relative;
+    position: relative;
+    font-family: 'Press Start 2P', Arial, Helvetica, sans-serif;
 }
 
 .box {
@@ -27,9 +27,56 @@ section {
     
 }
 
-section > *{
-    
+.btnMenu {
+	width: 275px;
+	height: 88px;
+    margin: 20px;
 }
+
+.btnVolver {
+	width: 70px;
+	height: 70px;
+	margin: 15px;
+	float: left;
+}
+
+
+/*Splash*/
+
+
+/*Inicio*/
+.alienInicio {
+	width: 128px;
+	height: 196px;
+	display: inline-block;
+	margin: 0 20px 0 20px;
+}
+
+/*Jugar*/
+#reloj {
+	height: 45px;
+	width: 45px;
+	display: inline-block;
+}
+
+.vida {
+	height: 50px;
+	width: 50px;
+	margin: 5px;
+}
+
+/*Instrucciones*/
+
+
+/*Objetivo*/
+
+
+/*Personajes*/
+
+
+/*Créditos*/
+
+
 
 #como_jugar {
 	margin: 25px;
@@ -118,15 +165,9 @@ span {
 	background-color: blue;
 }
 
-.btnVolver {
-	width: 70px;
-	height: 70px;
-	background-color: violet;
-	margin: 15px;
-	float: left;
-}
 
-#reloj {
+
+.reloj {
 	height: 45px;
 	width: 45px;
 	background-color: wheat;
@@ -150,12 +191,7 @@ span {
 #tiempo {
 	margin-left: 10px;
 }
-.vidas {
-	background-color: red;
-	height: 50px;
-	width: 50px;
-	margin: 5px;
-}
+
 .corazonesVidas {
 	display: inline-flex;
 	float: right;
