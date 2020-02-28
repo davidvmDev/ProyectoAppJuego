@@ -10,6 +10,7 @@ body {
 .box {
 	background-color: #daa520;
     position: fixed;
+   
 }
 
 section {
@@ -21,6 +22,8 @@ section {
 	background: #102439;
 	color: white;
     position: absolute;
+    
+    
     
 }
 
@@ -37,7 +40,7 @@ section > *{
 	background-color: Navy;
 	color: white;
 	padding: 10px;
-	text-decoration: none;
+    text-decoration: none;
 }
 
 .volver {
@@ -58,11 +61,13 @@ section > *{
 .btnMenu {
 	width: 275px;
 	height: 88px;
-	margin: 20px;
+    margin: 20px;
+   
 }
 
 #btnsMenu {
-	margin-top: 60%;
+    margin-top: 60%;
+    
 }
 
 .monstruoInicio {
@@ -70,7 +75,8 @@ section > *{
 	height: 194px;
 	background-color: red;
 	display: inline-block;
-	margin: 0 20px 0 20px;
+    margin: 0 20px 0 20px;
+    
 }
 
 a {
