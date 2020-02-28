@@ -8,7 +8,8 @@ window.onload = function() {
 	for (var i = 0; i < 50; i++) {
 		dot.push(new freshDot());
 	}
-	//setTimeout(cambiarSplash, tiempo_splash);
+    //setTimeout(cambiarSplash, tiempo_splash);
+    
 };
 
 function inicializarReferencias() {
@@ -37,7 +38,17 @@ function cambiarSeccion(id_seccion) {
 }
 var monstruos = [];
 
-function iniciarTablero() {}
+function iniciarTablero() {
+    var salida="";
+    contenido = document.getElementById("tablero");
+    for (var i = 0; i < 25; i++) {
+        var numeroAleatorio=Math.round(Math.random()*(5 - 1) + 1);
+        salida += " <img src='img/Exportación/alien"+numeroAleatorio+".PNG' >";       
+        
+    }
+    contenido.innerHTML = salida; 
+    cambiarSeccion(3);  
+}
 
 //Fondo
 function freshDot() {
