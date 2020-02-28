@@ -5,7 +5,7 @@ window.onload = function() {
     inicializarReferencias();
     //Crear Fondo
     var dot = [];
-	for (var i = 0; i < 200; i++) {
+	for (var i = 0; i < 50; i++) {
 		dot.push(new freshDot());
 	}
 	//setTimeout(cambiarSplash, tiempo_splash);
@@ -43,8 +43,8 @@ function iniciarTablero() {}
 function freshDot() {
 	this.obj = document.createElement('div');
 	this.obj.classList.add('box');
-	this.obj.style.top = window.innerHeight * Math.random() + 'px';
-	this.obj.style.left = window.innerWidth * Math.random() + 'px';
+	this.obj.style.top = 776 * Math.random() + 'px';
+	this.obj.style.left = 415 * Math.random() + 'px';
 	this.size = Math.floor(5 * Math.random()) + 7;
 	this.obj.style.height = this.size + 'px';
 	this.obj.style.width = this.size + 'px';
