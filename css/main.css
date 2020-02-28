@@ -192,7 +192,7 @@ span {
 }
 
 /*logica*/
-.tablero {
+#tablero {
 	display: grid;
 	grid-template-columns: 65px 65px 65px 65px 65px;
 	grid-gap: 10px;
@@ -203,10 +203,10 @@ span {
 	background-color: yellow;
 }
 
-.tablero > img {
+#tablero > img {
 	height: 95px;
 	width: 65px;
-	background-color: blue;
+	background-color: #102439;
 }
 
 .reloj {
