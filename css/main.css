@@ -1,34 +1,48 @@
+
+
 body {
-    margin: 0;
+	margin: 0;
+	width: 424px;
+	height: 776px;
+	position: relative;
+}
+
+.box {
+	background-color: #daa520;
+    position: fixed;
 }
 
 section {
-    /*width: 1080px;
+	/*width: 1080px;
     height: 1960px;*/
-    width: 424px;
-    height: 776px;
-    text-align: center;
-    background: #102439;
-    color: white;
+	width: 424px;
+	height: 776px;
+	text-align: center;
+	background: #102439;
+	color: white;
     position: absolute;
+    
+}
 
+section > *{
+    
 }
 
 #como_jugar {
-    margin: 25px;
-    text-align: left;
+	margin: 25px;
+	text-align: left;
 }
 
 .boton {
-    background-color: Navy;
-    color: white;
-    padding: 10px;
-    text-decoration: none;
+	background-color: Navy;
+	color: white;
+	padding: 10px;
+	text-decoration: none;
 }
 
 .volver {
-    margin-left: -980px;
-    line-height: 140px;
+	margin-left: -980px;
+	line-height: 140px;
 }
 
 /*h1 {
@@ -36,33 +50,31 @@ section {
 }*/
 
 .imagen {
-    height: 30%;
-    width: 60%;
-    padding-top: 20%;
+	height: 30%;
+	width: 60%;
+	padding-top: 20%;
 }
 
 .btnMenu {
-    width: 275px;
-    height: 88px;
-    margin: 20px;
+	width: 275px;
+	height: 88px;
+	margin: 20px;
 }
 
 #btnsMenu {
-    margin-top: 60%;
+	margin-top: 60%;
 }
 
 .monstruoInicio {
-    width: 128px;
-    height: 194px;
-    background-color: red;
-    display: inline-block;
-    margin: 0 20px 0 20px;
+	width: 128px;
+	height: 194px;
+	background-color: red;
+	display: inline-block;
+	margin: 0 20px 0 20px;
 }
 
-
-
 a {
-    font-size: 70px;
+	font-size: 70px;
 }
 
 /*p {
@@ -71,108 +83,104 @@ a {
 }*/
 
 span {
-    font-size: 70px;
+	font-size: 70px;
 }
 
 #integrantes {
-    margin-top: 20px;
+	margin-top: 20px;
 }
 
 .oculto {
-    display: none;
+	display: none;
 }
 
 /*logica*/
 .tablero {
-    display: grid;
-    grid-template-columns: 65px 65px 65px 65px 65px;
-    grid-gap: 10px;
-    padding: 10px;
-    margin-top: 30%;
-    margin-left: 20px;
-    margin-right: 20px;
-    background-color: yellow;
-
+	display: grid;
+	grid-template-columns: 65px 65px 65px 65px 65px;
+	grid-gap: 10px;
+	padding: 10px;
+	margin-top: 30%;
+	margin-left: 20px;
+	margin-right: 20px;
+	background-color: yellow;
 }
 
-.tablero>img {
-    height: 95px;
-    width: 65px;
-    background-color: blue;
+.tablero > img {
+	height: 95px;
+	width: 65px;
+	background-color: blue;
 }
 
 .btnVolver {
-    width: 70px;
-    height: 70px;
-    background-color: violet;
-    margin: 15px;
-    float: left;
+	width: 70px;
+	height: 70px;
+	background-color: violet;
+	margin: 15px;
+	float: left;
 }
 
 #reloj {
-    height: 45px;
-    width: 45px;
-    background-color: wheat;
-    display: inline-block;
+	height: 45px;
+	width: 45px;
+	background-color: wheat;
+	display: inline-block;
 }
 
 .nose {
-    position: relative;
+	position: relative;
 }
-.puntuacion{
-    float: right;
-    margin-right: 15px;
-    margin-top: 10px;
-    
+.puntuacion {
+	float: right;
+	margin-right: 15px;
+	margin-top: 10px;
 }
-.tiempos{
-    display: flex;
-    margin-left: 45%;
-    margin-top:25px;
-    position: absolute;
-
+.tiempos {
+	display: flex;
+	margin-left: 45%;
+	margin-top: 25px;
+	position: absolute;
 }
-#tiempo{
-    margin-left: 10px;
+#tiempo {
+	margin-left: 10px;
 }
-.vidas{
-    background-color: red;
-    height: 50px;
-    width: 50px;
-    margin: 5px;
+.vidas {
+	background-color: red;
+	height: 50px;
+	width: 50px;
+	margin: 5px;
 }
-.corazonesVidas{
-    display: inline-flex;
-    float:right;
-    margin-top: 10px;
-    margin-right: 15px;
+.corazonesVidas {
+	display: inline-flex;
+	float: right;
+	margin-top: 10px;
+	margin-right: 15px;
 }
-.rondas{
-    float: left;
-    margin-left: 60px;
+.rondas {
+	float: left;
+	margin-left: 60px;
 }
 /*Creditos*/
-.integrante{
-    width: 150px;
-    height: 150px;
-    background-color: white;
-    margin:30px;
+.integrante {
+	width: 150px;
+	height: 150px;
+	background-color: white;
+	margin: 30px;
 }
-.integrantes{
-    margin-top: 10px;
-    margin-left: 10px;
-    
+.integrantes {
+	margin-top: 10px;
+	margin-left: 10px;
 }
-.integrantes p{
-   margin-top:25%;
+.integrantes p {
+	margin-top: 25%;
 }
-.interno{
-    display: flex;
+.interno {
+	display: flex;
 }
-.titulo h1{
-    margin-top: 35px;
-    margin-left: 100px;
+.titulo h1 {
+	margin-top: 35px;
+	margin-left: 100px;
 }
-.titulo{
-    display: flex;
+.titulo {
+	display: flex;
 }
