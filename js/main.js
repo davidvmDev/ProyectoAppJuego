@@ -43,7 +43,7 @@ function iniciarTablero() {
     contenido = document.getElementById("tablero");
     for (var i = 0; i < 25; i++) {
         var numeroAleatorio=Math.round(Math.random()*(5 - 1) + 1);
-        salida += " <img src='img/Exportación/alien"+numeroAleatorio+".PNG' >";       
+        salida += " <img src='img/alien"+numeroAleatorio+".PNG' >";       
         
     }
     contenido.innerHTML = salida; 
