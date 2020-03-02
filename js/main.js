@@ -9,7 +9,7 @@ window.onload = function() {
 	for (var i = 0; i < 50; i++) {
 		dot.push(new freshDot());
 	}
-    //setTimeout(cambiarSplash, tiempo_splash);
+    setTimeout(cambiarSplash, tiempo_splash);
     
 };
 
@@ -47,6 +47,23 @@ function iniciarTablero() {
     }
     contenido.innerHTML = salida; 
     cambiarSeccion(3);  
+}
+var estaContando;
+function tiempoRonda(){
+	if(estaContando==true){
+		return;
+	}
+	puntaje = document.getElementById("tiempo");
+	i=15;
+	setInterval(function(){
+		if(i==-1){
+			estaContando=false;
+			return;		
+		}
+		puntaje.innerHTML=i--;	
+		estaContando=true;			
+    },1000)
+
 }
 
 //Fondo
