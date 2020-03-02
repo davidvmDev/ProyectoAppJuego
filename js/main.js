@@ -2,7 +2,8 @@ var secciones = [];
 var tiempo_splash = 2000;
 
 window.onload = function() {
-    inicializarReferencias();
+	inicializarReferencias();
+	
     //Crear Fondo
     var dot = [];
 	for (var i = 0; i < 50; i++) {
@@ -36,15 +37,13 @@ function cambiarSeccion(id_seccion) {
 	secciones[id_seccion].classList.add('headShake');
 	secciones[id_seccion].classList.remove('oculto');
 }
-var monstruos = [];
 
 function iniciarTablero() {
     var salida="";
     contenido = document.getElementById("tablero");
     for (var i = 0; i < 25; i++) {
         var numeroAleatorio=Math.round(Math.random()*(5 - 1) + 1);
-        salida += " <img src='img/alien"+numeroAleatorio+".PNG' >";       
-        
+        salida += " <img src='img/alien"+numeroAleatorio+".png' >";       
     }
     contenido.innerHTML = salida; 
     cambiarSeccion(3);  
