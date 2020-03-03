@@ -5,7 +5,7 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 
-	<title>Single App ejemplo</title>
+	<title>RECORDAR OBJETOS</title>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
 	<link href="https://fonts.googleapis.com/css?family=Press+Start+2P&display=swap" rel="stylesheet">
 	<link rel="stylesheet" href="css/main.css">
@@ -29,7 +29,7 @@
 
 		<div>
 			<img src="img/btnJugar.png" alt="Jugar" class="btnMenu" onclick="iniciarTablero()">
-			<img src="img/btnInstrucciones.png" alt="Instrucciones" class="btnMenu"	onclick="cambiarSeccion(4)">
+			<img src="img/btnInstrucciones.png" alt="Instrucciones" class="btnMenu" onclick="cambiarSeccion(4)">
 			<img src="img/btnCreditos.png" alt="Creditos" class="btnMenu" onclick="cambiarSeccion(7)">
 		</div>
 
@@ -42,37 +42,40 @@
 
 	<!-- Juego -->
 	<section id="seccion_3" class="juego oculto">
-		<div class="nose">
+		<div class="headerJuego">
 			<img src="img/btnVolver.png" alt="Volver" class="btnVolver" onclick="cambiarSeccion(2)">
-			<div class="tiempos">
+			<div class="tiempo">
 				<img src="img/reloj.png" alt="Reloj" id="reloj">
 				<p id="tiempo"></p>
 			</div>
 			<div class="puntuacion">
-				<h3 id="puntaje">Puntaje</h3>
-				<p id="valorPuntaje"></p>
+				<h3>PUNTAJE</h3>
+				<p id="puntaje"></p>
 			</div>
 		</div>
 		<div id="tablero">
-			
+
 		</div>
 		<div>
 			<div class="rondas">
-				<h3 id="ronda">Ronda</h3>
-				<p id="valorRonda">01</p>
+				<h3>RONDA</h3>
+				<p id="ronda"></p>
 			</div>
-			<div class="corazonesVidas">
-				<img src="img/vida.png" alt="Vida" class="vida">
-				<img src="img/vida.png" alt="Vida" class="vida">
-				<img src="img/vida.png" alt="Vida" class="vida">
+			<div class="vidas">
+				<img src="img/vida.png" alt="Vida" class="vida" id="vida1">
+				<img src="img/vida.png" alt="Vida" class="vida" id="vida2">
+				<img src="img/vida.png" alt="Vida" class="vida" id="vida3">
 			</div>
 		</div>
 	</section>
 
 	<!-- Instrucciones -->
-	<section id="seccion_4" class="oculto">
-		<img src="img/btnVolver.png" alt="Volver" class="btnVolver" onclick="cambiarSeccion(2)">
-		<div id="btnsMenu">
+	<section id="seccion_4" class="instrucciones oculto">
+		<div class="header">
+			<img src="img/btnVolver.png" alt="Volver" class="btnVolver" onclick="cambiarSeccion(2)">
+		</div>
+		
+		<div class="centro">
 			<img src="img/btnObjetivo.png" alt="Objetivo" class="btnMenu" onclick="cambiarSeccion(5)">
 			<img src="img/btnPersonajes.png" alt="Personajes" class="btnMenu" onclick="cambiarSeccion(6)">
 		</div>
@@ -82,18 +85,18 @@
 	<section id="seccion_5" class="objetivo oculto">
 		<div class="header">
 			<img src="img/btnVolver.png" alt="Volver" class="btnVolver" onclick="cambiarSeccion(4)">
-			<h1>Objetivo</h1>
+			<h1>OBJETIVO</h1>
 		</div>
-		<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum sapiente at doloremque ab quas officiis
-			dolorum in voluptate ipsam voluptates dolor culpa mollitia aspernatur quidem numquam eaque, error beatae!
-			Consequatur.</p>
+		<p id="objetivo">LOS ALIENS AMENAZAN LA TIERRA Y ES TU DEBER DETENERLOS, DESTRÚYELOS ANTES DE QUE SE ACABE EL
+			TIEMPO Y SIN ERRORES YA QUE SON INVISIBLES Y LOS PODRÁS VER SÓLO POR UN TIEMPO CORTO. RECUERDA SEGUIR EL
+			PATRÓN Y OPRIMIR LAS CASILLAS CORRECTAS PARA GANAR.</p>
 	</section>
 
 	<!-- Personajes -->
-	<section id="seccion_6" class="oculto">
+	<section id="seccion_6" class="personajes oculto">
 		<div class="header">
 			<img src="img/btnVolver.png" alt="Volver" class="btnVolver" onclick="cambiarSeccion(4)">
-			<h1>Personajes</h1>
+			<h1>PERSONAJES</h1>
 		</div>
 		<div class="personajes">
 			<div class="personaje">
@@ -129,30 +132,30 @@
 	<section id="seccion_7" class="creditos oculto">
 		<div class="header">
 			<img src="img/btnVolver.png" alt="Volver" class="btnVolver" onclick="cambiarSeccion(2)">
-			<h1>Créditos</h1>
+			<h1>CRÉDITOS</h1>
 		</div>
 		<div class="integrantes">
 			<div class="integrante">
 				<img src="img/fotoSebastian.png" alt="Sebastián">
 				<div>
-					<h2>Sebastián Figueredo</h2>
-					<p>Diseñador Gráfico</p>
+					<h2>SEBASTIÁN FIGUEREDO</h2>
+					<p>DISEÑADOR GRÁFICO</p>
 				</div>
 			</div>
 
 			<div class="integrante">
 				<img src="img/fotoDavid.png" alt="David">
 				<div>
-					<h2>David Velásquez</h2>
-					<p>Ingeniero de Sistemas</p>
+					<h2>DAVID VELÁSQUEZ</h2>
+					<p>INGENIERO DE SISTEMAS</p>
 				</div>
 			</div>
 
 			<div class="integrante">
 				<img src="img/fotoDiana.png" alt="Diana">
 				<div>
-					<h2>Diana Rodríguez</h2>
-					<p>Ingeniera de Sistemas</p>
+					<h2>DIANA RODRÍGUEZ</h2>
+					<p>INGENIERA DE SISTEMAS</p>
 				</div>
 			</div>
 		</div>
