@@ -173,11 +173,6 @@ a {
 	font-size: 70px;
 }
 
-/*p {
-    font-size: 70px;
-    margin: 50px;
-}*/
-
 span {
 	font-size: 70px;
 }
@@ -228,6 +223,9 @@ span {
 }
 #tiempo {
 	margin-left: 10px;
+}
+.alienOculto{
+	visibility: hidden;
 }
 
 .corazonesVidas {

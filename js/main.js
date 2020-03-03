@@ -36,33 +36,90 @@ function cambiarSeccion(id_seccion) {
 	secciones[id_seccion].classList.add('headShake');
 	secciones[id_seccion].classList.remove('oculto');
 }
-
+var NumeroEspeciales=3;
 function iniciarTablero() {
-    var salida="";
-    contenido = document.getElementById("tablero");
-    for (var i = 0; i < 25; i++) {
-        var numeroAleatorio=Math.round(Math.random()*(5 - 1) + 1);
-        salida += " <img src='img/alien"+numeroAleatorio+".PNG' >";       
-        
-    }
-    contenido.innerHTML = salida; 
-    cambiarSeccion(3);  
-}
-var estaContando;
-function tiempoRonda(){
-	if(estaContando==true){
-		return;
-	}
-	puntaje = document.getElementById("tiempo");
-	i=15;
-	setInterval(function(){
-		if(i==-1){
-			estaContando=false;
-			return;		
+	cambiarSeccion(3);
+	contador(); 
+	var aliens=[];
+	var salida="";
+	
+	contenido = document.getElementById("tablero");
+	var especiales=1;
+	//var organizar= new Promise (function(){
+		for (var i = 1; i < 26; i++) {
+			var numeroAleatorio=Math.round(Math.random()*(5 - 1) + 1);
+								
+        	aliens[i]=" <img src='img/alien"+numeroAleatorio+".PNG' class='alienOculto'>";                     
 		}
-		puntaje.innerHTML=i--;	
-		estaContando=true;			
-    },1000)
+	var totalAliens = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25];
+	lista = totalAliens.sort(function() {return Math.random() - 0.5});
+
+	for (var i = 1; especiales < NumeroEspeciales+1; i++) {
+		var numeroAleatorio=Math.round(Math.random()*(5 - 1) + 1);
+		aliens[lista[i]]=" <img src='img/alien"+numeroAleatorio+".PNG' class='alienOculto' id='especial"+especiales+"'> ";
+		especiales++;	
+	}
+	for (var i = 1; i < 26; i++) {
+		salida+=aliens[i];
+	}
+
+		contenido.innerHTML = salida;	
+		aparecerAliens(); 
+}
+
+function aparecerAliens(){
+	
+	var especiales=[];
+	var id="";
+	
+	for(var i=1;i<NumeroEspeciales+1;i++){
+		id=i.toString();
+		especiales[i]=document.getElementById("especial"+id);
+	}
+	var aparecer = setInterval(iniciarJuego,1000);
+	var k=1;
+		function iniciarJuego(){	
+				if(k>NumeroEspeciales){
+					clearInterval(aparecer);
+					return;
+					
+				}
+				else{
+					
+					especiales[k].classList.remove('alienOculto');
+					especiales[k].classList.remove('bounceIn');	
+					k++;
+					
+				}					
+		}
+
+}
+
+var estaContando=false;
+puntaje = document.getElementById("tiempo");
+function contador(){	
+	if(estaContando==true){	
+		return;	
+	}
+	i=15;
+	var timer = setInterval(iniciarContador,1000);
+	
+		function iniciarContador(){	
+			if(i<0){
+				clearInterval(timer);
+				estaContando=false;
+			}
+			else {
+				puntaje.innerHTML=i--;	
+				estaContando=true;
+				}	
+		}
+}
+
+//Dinamica
+
+function ronda(){
+
 
 }
 
