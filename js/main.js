@@ -39,7 +39,6 @@ function cambiarSeccion(id_seccion) {
 }
 var NumeroEspeciales=3;
 function iniciarTablero() {
-<<<<<<< HEAD
 	cambiarSeccion(3);
 	contador(); 
 	var aliens=[];
@@ -95,16 +94,6 @@ function aparecerAliens(){
 				}					
 		}
 
-=======
-    var salida="";
-    contenido = document.getElementById("tablero");
-    for (var i = 0; i < 25; i++) {
-        var numeroAleatorio=Math.round(Math.random()*(5 - 1) + 1);
-        salida += " <img src='img/alien"+numeroAleatorio+".png' >";       
-    }
-    contenido.innerHTML = salida; 
-    cambiarSeccion(3);  
->>>>>>> f5aa180aa6b2a917d7674e8ea749bdd2ed8dee47
 }
 
 var estaContando=false;
