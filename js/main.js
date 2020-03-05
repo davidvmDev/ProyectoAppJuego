@@ -39,8 +39,7 @@ function cambiarSeccion(id_seccion) {
 }
 var NumeroEspeciales=3;
 function iniciarTablero() {
-	cambiarSeccion(3);
-	contador(); 
+	
 	var aliens=[];
 	var salida="";
 	
@@ -50,50 +49,70 @@ function iniciarTablero() {
 		for (var i = 1; i < 26; i++) {
 			var numeroAleatorio=Math.round(Math.random()*(5 - 1) + 1);
 								
-        	aliens[i]=" <img src='img/alien"+numeroAleatorio+".PNG' class='alienOculto'>";                     
+        	aliens[i]=" <img src='img/alien"+numeroAleatorio+".PNG' class='alienOculto alien'>";                     
 		}
 	var totalAliens = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25];
 	lista = totalAliens.sort(function() {return Math.random() - 0.5});
 
 	for (var i = 1; especiales < NumeroEspeciales+1; i++) {
 		var numeroAleatorio=Math.round(Math.random()*(5 - 1) + 1);
-		aliens[lista[i]]=" <img src='img/alien"+numeroAleatorio+".PNG' class='alienOculto' id='especial"+especiales+"'> ";
+		aliens[lista[i]]=" <img src='img/alien"+numeroAleatorio+".PNG' class='alienOculto alien' id='especial"+especiales+"'> ";
 		especiales++;	
 	}
 	for (var i = 1; i < 26; i++) {
 		salida+=aliens[i];
 	}
 
-		contenido.innerHTML = salida;	
-		aparecerAliens(); 
+		contenido.innerHTML = salida;			
 }
 
+var especiales=[];
+var id="";
+
 function aparecerAliens(){
-	
-	var especiales=[];
-	var id="";
 	
 	for(var i=1;i<NumeroEspeciales+1;i++){
 		id=i.toString();
 		especiales[i]=document.getElementById("especial"+id);
 	}
-	var aparecer = setInterval(iniciarJuego,1000);
 	var k=1;
-		function iniciarJuego(){	
-				if(k>NumeroEspeciales){
-					clearInterval(aparecer);
-					return;
-					
-				}
-				else{
-					
-					especiales[k].classList.remove('alienOculto');
-					especiales[k].classList.remove('bounceIn');	
-					k++;
-					
-				}					
-		}
+		return new Promise(resolve => {
+			var aparecer = setInterval(()=>{	
+			if(k>NumeroEspeciales){
+				clearInterval(aparecer);
+				resolve('finalizo');					
+			}
+			else{
+				
+				especiales[k].classList.remove('alienOculto');
+				especiales[k].classList.remove('bounceIn');	
+				k++;
+				
+			}					
+	},1500);
+	});
 
+}
+
+
+ function desapareserAliens(){
+	var k=1;
+	return new Promise(resolve => {
+		var aparecer = setInterval(()=>{	
+		if(k>NumeroEspeciales){
+			clearInterval(aparecer);
+			resolve('finalizo');					
+		}
+		else{
+			
+			especiales[k].classList.add('alienOculto');
+			especiales[k].classList.add('bounceIn');	
+			k++;
+			
+		}					
+},1500);
+});
+	
 }
 
 var estaContando=false;
@@ -115,13 +134,58 @@ function contador(){
 				estaContando=true;
 				}	
 		}
+		
 }
+/*
+var allAliens = document.querySelectorAll('alien');
+
+function checkear(especial){
+	especiales[especial].classList.remove('alien');
+	return new Promise(resolve => {	
+			especiales[especial].onclick = function() {				
+				especiales[especial].classList.remove('alienOculto');
+				especiales[especial].classList.remove('bounceIn');
+				console.log("vas bien");
+				resolve("bien");
+			}	
+		
+},reject=>{
+	for(var i in allAliens){
+		allAliens[i].onclick=function(){reject("mal");};
+	}
+	allAliens.onclick = function() {
+		console.log("papi se cago");		
+		reject("mal");
+	}
+});
+	
+}*/
 
 //Dinamica
 
-function ronda(){
+async function ronda(){
+	cambiarSeccion(3);
+	
+	iniciarTablero();
+	await aparecerAliens();
+	console.log("termino");
+	await desapareserAliens();
+	console.log("desaparecidos");
+	contador(); 
+	/*var resultado="";
+	for(var i=1;i<NumeroEspeciales+1;i++){
+		if(resultado="mal"){
+			
+			break;
 
-
+		}
+		else{
+			resultado= await checkear(i);
+		}
+		
+	}*/
+	
+	
 }
 
 //Fondo
