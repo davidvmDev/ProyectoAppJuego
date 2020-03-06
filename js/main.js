@@ -9,7 +9,7 @@ window.onload = function() {
 	for (var i = 0; i < 50; i++) {
 		dot.push(new freshDot());
 	}
-    setTimeout(cambiarSplash, tiempo_splash);
+    //setTimeout(cambiarSplash, tiempo_splash);
     
 };
 
@@ -37,6 +37,7 @@ function cambiarSeccion(id_seccion) {
 	secciones[id_seccion].classList.add('headShake');
 	secciones[id_seccion].classList.remove('oculto');
 }
+
 var NumeroEspeciales=3;
 function iniciarTablero() {
 	cambiarSeccion(3);
@@ -135,4 +136,18 @@ function freshDot() {
 	this.obj.style.width = this.size + 'px';
 
 	document.body.appendChild(this.obj);
+}
+
+//Splash
+function animacionSplash() {
+	var brain_ercise = document.getElementById("brain_ercise");
+	var mouse = document.getElementById("mouse");
+	var brainXercise = document.getElementById("brainXercise");
+	brain_ercise.classList.add('animated bounceIn');
+	mouse.classList.remove('oculto');
+	mouse.classList.add('animated slideInRight');
+	mouse.classList.add('pulse');
+	brain_ercise.classList.add('oculto');
+	brainXercise.classList.remove('oculto');
+	mouse.classList.add('animated slideOutLeft');
 }

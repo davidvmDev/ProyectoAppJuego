@@ -47,6 +47,22 @@ section {
 }
 
 /*Splash*/
+.animacionSplash{
+	width: 424px;
+	display: flex;
+	margin-top: 70%;
+}
+
+.imgSplash{
+	width: 424px;
+	position: absolute;
+}
+
+.mouse{
+	margin-left: 173px;
+	margin-top: 30px;
+	transform: rotate(-30deg);
+}
 
 /*Inicio*/
 .alienInicio {
