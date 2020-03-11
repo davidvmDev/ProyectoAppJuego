@@ -84,11 +84,11 @@ function comparar_ganador(a,b){
 	for(var i=0;i<b.length;i++){
 		if(a[i]!=b[i])
 		{
-			alert("maraculloso");
+			alert("perdio");
 			return false;//perdio
 		}	
 	}	
-	alert("maracullosochimba");	
+	alert("va bien");	
 	return true;
 	
 }
