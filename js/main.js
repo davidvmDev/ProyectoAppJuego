@@ -1,5 +1,7 @@
 var secciones = [];
 var tiempo_splash = 2000;
+var ref_arr=[];
+var resp_arr=[];
 
 window.onload = function() {
 	inicializarReferencias();
@@ -9,7 +11,7 @@ window.onload = function() {
 	for (var i = 0; i < 50; i++) {
 		dot.push(new freshDot());
 	}
-    //setTimeout(cambiarSplash, tiempo_splash);
+    setTimeout(cambiarSplash, tiempo_splash);
     
 };
 
@@ -27,7 +29,7 @@ function cambiarSplash() {
 	secciones[1].className = 'splash oculto';
 	secciones[2].className = 'home';
 }
-
+// funcion para cambiar la seccion
 function cambiarSeccion(id_seccion) {
 	for (var i in secciones) {
 		secciones[i].classList.add('oculto');
@@ -38,16 +40,18 @@ function cambiarSeccion(id_seccion) {
 	secciones[id_seccion].classList.remove('oculto');
 }
 
-var NumeroEspeciales=3;
+var NumeroEspeciales=3;// numero de aliens a aparecer por ronda.
+
+// Se inicia el tablero
 function iniciarTablero() {
 	
-	var aliens=[];
+	var aliens=[];// tofos los aliens
 	var salida="";
 	
 	contenido = document.getElementById("tablero");
-	var especiales=1;
-	//var organizar= new Promise (function(){
-		for (var i = 1; i < 26; i++) {
+	
+	
+		for (var i = 0; i < 25; i++) {
 			var numeroAleatorio=Math.round(Math.random()*(5 - 1) + 1);
 								
         	aliens[i]=" <img src='img/alien"+numeroAleatorio+".PNG' class='alienOculto alien'>";                     
@@ -55,31 +59,54 @@ function iniciarTablero() {
 	var totalAliens = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25];
 	lista = totalAliens.sort(function() {return Math.random() - 0.5});
 
-	for (var i = 1; especiales < NumeroEspeciales+1; i++) {
+	for (var i = 0; i < NumeroEspeciales; i++) {
 		var numeroAleatorio=Math.round(Math.random()*(5 - 1) + 1);
-		aliens[lista[i]]=" <img src='img/alien"+numeroAleatorio+".PNG' class='alienOculto alien' id='especial"+especiales+"'> ";
-		especiales++;	
+		aliens[lista[i]]=" <img src='img/alien"+numeroAleatorio+".PNG' onclick='validar("+i+");' class='alienOculto alien' id='especial"+i+"'> ";
+		ref_arr[i]=i;
+			
 	}
-	for (var i = 1; i < 26; i++) {
+	for (var i = 0; i < 25; i++) {
 		salida+=aliens[i];
 	}
 
-		contenido.innerHTML = salida;			
+		contenido.innerHTML = salida;		
+		
 }
 
-var especiales=[];
+function validar(opc){
+	//var ref_arr = [3,2,1]; Valor aleatorio de configuracion
+	resp_arr.push(opc);
+	comparar_ganador(ref_arr,resp_arr);
+	console.log(ref_arr);
+	console.log(resp_arr);
+}
+function comparar_ganador(a,b){
+	for(var i=0;i<b.length;i++){
+		if(a[i]!=b[i])
+		{
+			alert("maraculloso");
+			return false;//perdio
+		}	
+	}	
+	alert("maracullosochimba");	
+	return true;
+	
+}
+var especiales=[];// los aliens que apareceran 
 var id="";
-
+//funcion para aparecer los aliens
 function aparecerAliens(){
 	
-	for(var i=1;i<NumeroEspeciales+1;i++){
+	for(var i=0;i<NumeroEspeciales;i++){
 		id=i.toString();
 		especiales[i]=document.getElementById("especial"+id);
 	}
-	var k=1;
+	
+	var k=0;
 		return new Promise(resolve => {
 			var aparecer = setInterval(()=>{	
-			if(k>NumeroEspeciales){
+			if(k>=NumeroEspeciales){
+				console.log(especiales);
 				clearInterval(aparecer);
 				resolve('finalizo');					
 			}
@@ -95,12 +122,12 @@ function aparecerAliens(){
 
 }
 
-
+//funcion para desaparecer aliens
  function desapareserAliens(){
-	var k=1;
+	var k=0;
 	return new Promise(resolve => {
 		var aparecer = setInterval(()=>{	
-		if(k>NumeroEspeciales){
+		if(k>=NumeroEspeciales){
 			clearInterval(aparecer);
 			resolve('finalizo');					
 		}
@@ -115,7 +142,7 @@ function aparecerAliens(){
 });
 	
 }
-
+//funcion para el contador de tiempo
 var estaContando=false;
 puntaje = document.getElementById("tiempo");
 function contador(){	
@@ -137,16 +164,16 @@ function contador(){
 		}
 		
 }
-/*
-var allAliens = document.querySelectorAll('alien');
 
+var allAliens = document.querySelectorAll('alien');
+/*
 function checkear(especial){
 	especiales[especial].classList.remove('alien');
 	return new Promise(resolve => {	
 			especiales[especial].onclick = function() {				
 				especiales[especial].classList.remove('alienOculto');
 				especiales[especial].classList.remove('bounceIn');
-				console.log("vas bien");
+				console.log("va bien");
 				resolve("bien");
 			}	
 		
@@ -155,7 +182,7 @@ function checkear(especial){
 		allAliens[i].onclick=function(){reject("mal");};
 	}
 	allAliens.onclick = function() {
-		console.log("papi se cago");		
+		console.log("no dio");		
 		reject("mal");
 	}
 });
@@ -189,7 +216,7 @@ async function ronda(){
 	
 }
 
-//Fondo
+//Fondo con estrellas
 function freshDot() {
 	this.obj = document.createElement('div');
 	this.obj.classList.add('box');
