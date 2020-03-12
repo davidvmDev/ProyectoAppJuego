@@ -163,7 +163,7 @@ h3 {
 	color: blue;
 }
 .alienOculto{
-	visibility: hidden;
+	opacity: 0;
 }
 
 #comun {
@@ -172,6 +172,11 @@ h3 {
 
 #epico {
 	color: red;
+}
+/*alertas*/
+.swal2-container/*.swal2-center*/ {
+	height: 776px !important;
+	width: 424px !important;
 }
 
 /*Créditos*/

@@ -2,6 +2,11 @@ var secciones = [];
 var tiempo_splash = 2000;
 var ref_arr=[];
 var resp_arr=[];
+var jugando=false;
+var NumeroEspeciales=3;// numero de aliens a aparecer por ronda.
+var especiales=[];// los aliens que apareceran 
+var id="";
+var rondaa = 1;
 
 window.onload = function() {
 	inicializarReferencias();
@@ -36,11 +41,9 @@ function cambiarSeccion(id_seccion) {
 	}
 
 	secciones[id_seccion].classList.add('animated');
-	secciones[id_seccion].classList.add('headShake');
+	secciones[id_seccion].classList.add('fadeIn');
 	secciones[id_seccion].classList.remove('oculto');
 }
-
-var NumeroEspeciales=3;// numero de aliens a aparecer por ronda.
 
 // Se inicia el tablero
 function iniciarTablero() {
@@ -56,7 +59,7 @@ function iniciarTablero() {
 								
         	aliens[i]=" <img src='img/alien"+numeroAleatorio+".PNG' class='alienOculto alien'>";                     
 		}
-	var totalAliens = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25];
+	var totalAliens = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,0];
 	lista = totalAliens.sort(function() {return Math.random() - 0.5});
 
 	for (var i = 0; i < NumeroEspeciales; i++) {
@@ -74,7 +77,6 @@ function iniciarTablero() {
 }
 
 function validar(opc){
-	//var ref_arr = [3,2,1]; Valor aleatorio de configuracion
 	resp_arr.push(opc);
 	comparar_ganador(ref_arr,resp_arr);
 	console.log(ref_arr);
@@ -84,29 +86,34 @@ function comparar_ganador(a,b){
 	for(var i=0;i<b.length;i++){
 		if(a[i]!=b[i])
 		{
-			alert("perdio");
+			perdioVida();
+			jugando=false;			
 			return false;//perdio
+		}
+		else{
+			if(i==a.length-1){
+				ganoRonda();
+				return true;
+			}
 		}	
 	}	
-	alert("va bien");	
-	return true;
+	
 	
 }
-var especiales=[];// los aliens que apareceran 
-var id="";
 //funcion para aparecer los aliens
 function aparecerAliens(){
 	
 	for(var i=0;i<NumeroEspeciales;i++){
 		id=i.toString();
 		especiales[i]=document.getElementById("especial"+id);
+		
 	}
+	console.log(especiales);
 	
 	var k=0;
 		return new Promise(resolve => {
 			var aparecer = setInterval(()=>{	
 			if(k>=NumeroEspeciales){
-				console.log(especiales);
 				clearInterval(aparecer);
 				resolve('finalizo');					
 			}
@@ -118,30 +125,54 @@ function aparecerAliens(){
 				
 			}					
 	},1500);
+	},reject=>{
+		if(jugando==false){
+			reject('chao');
+		}
+		
 	});
 
 }
 
-//funcion para desaparecer aliens
- function desapareserAliens(){
-	var k=0;
-	return new Promise(resolve => {
-		var aparecer = setInterval(()=>{	
-		if(k>=NumeroEspeciales){
-			clearInterval(aparecer);
-			resolve('finalizo');					
-		}
-		else{
-			
-			especiales[k].classList.add('alienOculto');
-			especiales[k].classList.add('bounceIn');	
-			k++;
-			
-		}					
-},1500);
-});
+function perdioVida(){
+	ref_arr.length=0;
+	resp_arr.length=0;
+	Swal.fire({
+		title: 'Game Over',
+		width: 424,
+		padding: '3em',			
+	  })
 	
 }
+
+function ganoRonda(){
+	if(rondaa==6){
+		ref_arr.length=0;
+		resp_arr.length=0;
+		Swal.fire({
+			title: 'Ganaste!',
+			width: 424,
+			padding: '3em',			
+		})
+	}
+	else{
+		ref_arr.length=0;
+		resp_arr.length=0;
+		rondaa++;
+		NumeroEspeciales++;
+		
+		Swal.fire({
+			title: 'Bien',
+			timer: 800,		
+		}).then((result) => {
+			if (result.dismiss === Swal.DismissReason.timer) {
+			console.log('I was closed by the timer')
+			}
+		})
+		ronda();
+	}
+}
+
 //funcion para el contador de tiempo
 var estaContando=false;
 puntaje = document.getElementById("tiempo");
@@ -164,55 +195,43 @@ function contador(){
 		}
 		
 }
+function empezarDeCero(){
+	NumeroEspeciales=3;
+	cambiarSeccion(2);
+}
 
-var allAliens = document.querySelectorAll('alien');
-/*
-function checkear(especial){
-	especiales[especial].classList.remove('alien');
-	return new Promise(resolve => {	
-			especiales[especial].onclick = function() {				
-				especiales[especial].classList.remove('alienOculto');
-				especiales[especial].classList.remove('bounceIn');
-				console.log("va bien");
-				resolve("bien");
-			}	
-		
-},reject=>{
-	for(var i in allAliens){
-		allAliens[i].onclick=function(){reject("mal");};
-	}
-	allAliens.onclick = function() {
-		console.log("no dio");		
-		reject("mal");
-	}
-});
-	
-}*/
 
 //Dinamica
 
-async function ronda(){
-	cambiarSeccion(3);
-	
+ function ronda(){
+	jugando =true;
+	cambiarSeccion(3);	
 	iniciarTablero();
-	await aparecerAliens();
+	aparecerAliens().then(()=>{
+		var p=0;
+		return new Promise(resolve => {
+			var aparecer = setInterval(()=>{	
+			if(p>=NumeroEspeciales){
+				clearInterval(aparecer);
+				resolve('finalizo');					
+			}
+			else{
+				especiales[p].classList.add('alienOculto');
+				especiales[p].classList.add('bounceIn');	
+				p++;
+					
+			}					
+			},1500);
+		},reject=>{
+			if(jugando==false){
+				reject('chao');
+			}
+			});
+	}).then(contador())
+	//desapareserAliens();
 	console.log("termino");
-	await desapareserAliens();
 	console.log("desaparecidos");
-	contador(); 
-	/*var resultado="";
-	for(var i=1;i<NumeroEspeciales+1;i++){
-		if(resultado="mal"){
-			
-			break;
-
-		}
-		else{
-			resultado= await checkear(i);
-		}
-		
-	}*/
-	
+	//contador(); 
 	
 }
 
