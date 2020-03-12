@@ -7,6 +7,17 @@ var NumeroEspeciales=3;// numero de aliens a aparecer por ronda.
 var especiales=[];// los aliens que apareceran 
 var id="";
 var rondaa = 1;
+var tiempoRonda;
+var vidas=3;
+var estaContando=false;
+var vectorVidas=[];
+puntaje = document.getElementById("tiempo");
+for(var i=1;i<4;i++){
+	vectorVidas[i]=document.getElementById("vida"+i);		
+}
+refRonda=document.getElementById("ronda");
+
+
 
 window.onload = function() {
 	inicializarReferencias();
@@ -17,7 +28,7 @@ window.onload = function() {
 		dot.push(new freshDot());
 	}
     setTimeout(cambiarSplash, tiempo_splash);
-    
+    refRonda.innerHTML=1;
 };
 
 function inicializarReferencias() {
@@ -27,7 +38,7 @@ function inicializarReferencias() {
 	secciones[4] = document.getElementById('seccion_4');
 	secciones[5] = document.getElementById('seccion_5');
 	secciones[6] = document.getElementById('seccion_6');
-	secciones[7] = document.getElementById('seccion_7');
+	secciones[7] = document.getElementById('seccion_7');	
 }
 
 function cambiarSplash() {
@@ -120,7 +131,8 @@ function aparecerAliens(){
 			else{
 				
 				especiales[k].classList.remove('alienOculto');
-				especiales[k].classList.remove('bounceIn');	
+				especiales[k].classList.add('bounceIn');	
+					
 				k++;
 				
 			}					
@@ -135,14 +147,41 @@ function aparecerAliens(){
 }
 
 function perdioVida(){
-	ref_arr.length=0;
-	resp_arr.length=0;
-	Swal.fire({
-		title: 'Game Over',
-		width: 424,
-		padding: '3em',			
-	  })
+	if(vidas==1){
+		tiempoRonda=1;
+		Swal.fire({
+			title: 'Game Over',
+			timer: 800,		
+		}).then((result) => {
+			if (result.dismiss === Swal.DismissReason.timer) {
+				empezarDeCero();
+				
+			}
+		})
+		
+	}
+	else{
+		vidas--;
+		tiempoRonda=1;
+		desaparecerVida();
+		Swal.fire({
+			title: 'Perdiste Vida',
+			timer: 800,		
+		}).then((result) => {
+			if (result.dismiss === Swal.DismissReason.timer) {
+				ronda();
+			}
+		})
+	}
 	
+	
+}
+
+
+
+function desaparecerVida(){
+		vectorVidas[vidas+1].classList.add('alienOculto');
+		vectorVidas[vidas+1].classList.add('bounceOut');				
 }
 
 function ganoRonda(){
@@ -156,47 +195,36 @@ function ganoRonda(){
 		})
 	}
 	else{
-		ref_arr.length=0;
-		resp_arr.length=0;
 		rondaa++;
 		NumeroEspeciales++;
-		
+		tiempoRonda=1;
+		refRonda.innerHTML=rondaa.toString();
+		jugando=false;	
+
 		Swal.fire({
 			title: 'Bien',
 			timer: 800,		
 		}).then((result) => {
 			if (result.dismiss === Swal.DismissReason.timer) {
-			console.log('I was closed by the timer')
+				ronda();
 			}
 		})
-		ronda();
+		
 	}
 }
 
 //funcion para el contador de tiempo
-var estaContando=false;
-puntaje = document.getElementById("tiempo");
-function contador(){	
-	if(estaContando==true){	
-		return;	
-	}
-	i=15;
-	var timer = setInterval(iniciarContador,1000);
-	
-		function iniciarContador(){	
-			if(i<0){
-				clearInterval(timer);
-				estaContando=false;
-			}
-			else {
-				puntaje.innerHTML=i--;	
-				estaContando=true;
-				}	
-		}
-		
-}
+
+
 function empezarDeCero(){
 	NumeroEspeciales=3;
+	vidas=3;
+	rondaa=1;
+	for(var i=1;i<4;i++){
+		vectorVidas[i].classList.remove('alienOculto');
+		vectorVidas[i].classList.remove('bounceOut');		
+	}
+	
 	cambiarSeccion(2);
 }
 
@@ -204,9 +232,14 @@ function empezarDeCero(){
 //Dinamica
 
  function ronda(){
+	ref_arr.length=0;
+	resp_arr.length=0;
 	jugando =true;
 	cambiarSeccion(3);	
 	iniciarTablero();
+	console.log(resp_arr);
+	console.log(ref_arr);
+	
 	aparecerAliens().then(()=>{
 		var p=0;
 		return new Promise(resolve => {
@@ -217,7 +250,7 @@ function empezarDeCero(){
 			}
 			else{
 				especiales[p].classList.add('alienOculto');
-				especiales[p].classList.add('bounceIn');	
+				especiales[p].classList.add('bounceOut');	
 				p++;
 					
 			}					
@@ -227,11 +260,30 @@ function empezarDeCero(){
 				reject('chao');
 			}
 			});
-	}).then(contador())
-	//desapareserAliens();
-	console.log("termino");
-	console.log("desaparecidos");
-	//contador(); 
+			
+	}).then(()=>{
+		Swal.fire({
+			title: 'Empieza',
+			timer: 800,		
+		})
+		tiempoRonda=15;
+		return new Promise(resolve => {
+		var timer = setInterval(iniciarContador,1000);
+		
+			function iniciarContador(){	
+				if(tiempoRonda<=0){
+					clearInterval(timer);
+					estaContando=false;
+					resolve('tiempoTerminado');
+				}
+				else {
+					puntaje.innerHTML=tiempoRonda--;	
+					}	
+			}
+		})
+
+	})
+	
 	
 }
 
