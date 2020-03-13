@@ -9,7 +9,8 @@ window.onload = function() {
 	for (var i = 0; i < 50; i++) {
 		dot.push(new freshDot());
 	}
-    //setTimeout(cambiarSplash, tiempo_splash);
+	//this.animacionSplash();
+    setTimeout(cambiarSplash, tiempo_splash);
     
 };
 
@@ -207,6 +208,13 @@ function animacionSplash() {
 	var brain_ercise = document.getElementById("brain_ercise");
 	var mouse = document.getElementById("mouse");
 	var brainXercise = document.getElementById("brainXercise");
+
+	var v = [brain_ercise, mouse, brainXercise];
+
+	for(var i = 0; i < 7; i++){
+
+	}
+
 	brain_ercise.classList.add('animated bounceIn');
 	mouse.classList.remove('oculto');
 	mouse.classList.add('animated slideInRight');

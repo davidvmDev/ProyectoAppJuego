@@ -116,18 +116,18 @@ span {
 #tablero {
 	display: grid;
 	grid-template-columns: 65px 65px 65px 65px 65px;
-	grid-gap: 10px;
+
 	padding: 10px;
 	margin-top: 30%;
 	margin-left: 20px;
 	margin-right: 20px;
-	background-color: #EFD64F;
 }
 
 #tablero img {
 	height: 95px;
 	width: 65px;
 	background-color: #102439;
+	border: #daa520;
 }
 
 /*Instrucciones*/
@@ -159,12 +159,15 @@ h3 {
 	height: 120px;
 }
 
+.alienOculto{
+	border: #daa520;
+	visibility: hidden;
+}
+
 #raro {
 	color: blue;
 }
-.alienOculto{
-	visibility: hidden;
-}
+
 
 #comun {
 	color: green;
