@@ -1,0 +1,27 @@
+{
+  "name": "proyectoappjuego",
+  "version": "1.0.0",
+  "description": "",
+  "main": "GruntFile.js",
+  "dependencies": {
+    "grunt-contrib-compress": "^1.6.0",
+    "grunt-contrib-cssmin": "^3.0.0",
+    "grunt-contrib-uglify": "^4.0.1"
+  },
+  "devDependencies": {
+    "grunt": "^1.0.4"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/davidvmDev/ProyectoAppJuego.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/davidvmDev/ProyectoAppJuego/issues"
+  },
+  "homepage": "https://github.com/davidvmDev/ProyectoAppJuego#readme"
+}
