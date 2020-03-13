@@ -17,6 +17,7 @@ for(var i=1;i<4;i++){
 }
 refRonda=document.getElementById("ronda");
 
+//cuando inicia
 window.onload = function() {
 	inicializarReferencias();
 	
@@ -28,7 +29,7 @@ window.onload = function() {
     setTimeout(cambiarSplash, tiempo_splash);
     refRonda.innerHTML=1;
 };
-
+//cagar las referencias
 function inicializarReferencias() {
 	secciones[1] = document.getElementById('seccion_1');
 	secciones[2] = document.getElementById('seccion_2');
@@ -38,6 +39,7 @@ function inicializarReferencias() {
 	secciones[6] = document.getElementById('seccion_6');
 	secciones[7] = document.getElementById('seccion_7');	
 }
+
 
 function cambiarSplash() {
 	secciones[1].className = 'splash oculto';
@@ -143,7 +145,7 @@ function aparecerAliens(){
 	});
 
 }
-
+//cuando pierde
 function perdioVida(){
 	if(vidas==1){
 		tiempoRonda=1;
@@ -175,13 +177,15 @@ function perdioVida(){
 	
 }
 
+//quitar la vida que perdio
 function desaparecerVida(){
 		vectorVidas[vidas+1].classList.add('alienOculto');
 		vectorVidas[vidas+1].classList.add('bounceOut');				
 }
 
+//cuando gana
 function ganoRonda(){
-	if(rondaa==6){
+	if(rondaa==5){
 		ref_arr.length=0;
 		resp_arr.length=0;
 		Swal.fire({
@@ -189,6 +193,7 @@ function ganoRonda(){
 			width: 424,
 			padding: '3em',			
 		})
+		ganoRonda();
 	}
 	else{
 		rondaa++;
@@ -210,7 +215,6 @@ function ganoRonda(){
 }
 
 //funcion para el contador de tiempo
-
 
 function empezarDeCero(){
 	NumeroEspeciales=3;
