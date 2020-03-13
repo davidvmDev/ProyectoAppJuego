@@ -17,8 +17,6 @@ for(var i=1;i<4;i++){
 }
 refRonda=document.getElementById("ronda");
 
-
-
 window.onload = function() {
 	inicializarReferencias();
 	
@@ -177,8 +175,6 @@ function perdioVida(){
 	
 }
 
-
-
 function desaparecerVida(){
 		vectorVidas[vidas+1].classList.add('alienOculto');
 		vectorVidas[vidas+1].classList.add('bounceOut');				
@@ -228,7 +224,6 @@ function empezarDeCero(){
 	cambiarSeccion(2);
 }
 
-
 //Dinamica
 
  function ronda(){
@@ -272,6 +267,9 @@ function empezarDeCero(){
 		
 			function iniciarContador(){	
 				if(tiempoRonda<=0){
+					if(ref_arr.length!=resp_arr.length){
+						perdioVida();
+					}
 					clearInterval(timer);
 					estaContando=false;
 					resolve('tiempoTerminado');
