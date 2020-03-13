@@ -173,6 +173,26 @@ async function ronda() {
 		if(resultado="mal"){
 			
 			break;
+	}).then(()=>{
+		Swal.fire({
+			title: 'Empieza',
+			timer: 800,		
+		})
+		tiempoRonda=15;
+		return new Promise(resolve => {
+		var timer = setInterval(iniciarContador,1000);
+		
+			function iniciarContador(){	
+				if(tiempoRonda<=0){
+					clearInterval(timer);
+					estaContando=false;
+					resolve('tiempoTerminado');
+				}
+				else {
+					puntaje.innerHTML=tiempoRonda--;	
+					}	
+			}
+		})
 
 		}
 		else{
