@@ -47,21 +47,10 @@ section {
 }
 
 /*Splash*/
-.animacionSplash{
-	width: 424px;
-	display: flex;
-	margin-top: 70%;
-}
-
 .imgSplash{
-	width: 424px;
+	margin-top: 70%;
+	margin-left: -50%;
 	position: absolute;
-}
-
-.mouse{
-	margin-left: 173px;
-	margin-top: 30px;
-	transform: rotate(-30deg);
 }
 
 /*Inicio*/
@@ -91,15 +80,17 @@ section {
 	text-align: right;
 }
 
+.rondas {
+	float: left;
+	justify-content: center;
+	align-items: center;
+}
+
 .vidas {
 	display: inline-flex;
 	float: right;
 	margin-top: 10px;
 	margin-right: 15px;
-}
-
-span {
-	font-size: 70px;
 }
 
 .vida {
@@ -116,18 +107,29 @@ span {
 #tablero {
 	display: grid;
 	grid-template-columns: 65px 65px 65px 65px 65px;
-
+	grid-gap: 10px;
 	padding: 10px;
 	margin-top: 30%;
 	margin-left: 20px;
 	margin-right: 20px;
+	background-color: #daa520;
 }
 
-#tablero img {
+#tablero div{
 	height: 95px;
 	width: 65px;
 	background-color: #102439;
-	border: #daa520;
+	align-content: center;
+}
+
+.alienJuego {
+	height: 90px;
+	width: 60px;
+}
+
+.alienOculto{
+	visibility: hidden;
+	opacity: 0;
 }
 
 /*Instrucciones*/
@@ -159,12 +161,6 @@ h3 {
 	height: 120px;
 }
 
-.alienOculto{
-	border: #daa520;
-	visibility: hidden;
-	opacity: 0;
-}
-
 #raro {
 	color: blue;
 }
@@ -177,6 +173,7 @@ h3 {
 #epico {
 	color: red;
 }
+
 /*alertas*/
 .swal2-container/*.swal2-center*/ {
 	height: 776px !important;
