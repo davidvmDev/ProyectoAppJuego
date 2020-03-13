@@ -162,6 +162,7 @@ h3 {
 .alienOculto{
 	border: #daa520;
 	visibility: hidden;
+	opacity: 0;
 }
 
 #raro {
@@ -175,6 +176,11 @@ h3 {
 
 #epico {
 	color: red;
+}
+/*alertas*/
+.swal2-container/*.swal2-center*/ {
+	height: 776px !important;
+	width: 424px !important;
 }
 
 /*Créditos*/
