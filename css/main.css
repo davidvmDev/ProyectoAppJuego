@@ -67,17 +67,10 @@ section {
 }
 
 .tiempo {
-	margin-left: 20%;
+	margin-left: 30%;
 	margin-top: 20px;
 	float: left;
 	align-items: center;
-}
-
-.puntuacion {
-	margin-right: 20px;
-	margin-top: 20px;
-	float: right;
-	text-align: right;
 }
 
 .rondas {
@@ -128,7 +121,6 @@ section {
 }
 
 .alienOculto{
-	visibility: hidden;
 	opacity: 0;
 }
 
