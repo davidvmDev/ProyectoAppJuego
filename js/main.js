@@ -267,9 +267,6 @@ function empezarDeCero(){
 		
 			function iniciarContador(){	
 				if(tiempoRonda<=0){
-					if(ref_arr.length!=resp_arr.length){
-						perdioVida();
-					}
 					clearInterval(timer);
 					estaContando=false;
 					resolve('tiempoTerminado');
