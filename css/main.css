@@ -113,6 +113,9 @@ section {
 	background-color: #102439;
 	align-content: center;
 }
+.noClick{
+	pointer-events: none;
+}
 
 .alienJuego {
 	height: 90px;

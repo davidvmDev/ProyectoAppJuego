@@ -16,6 +16,8 @@ for(var i=1;i<4;i++){
 	vectorVidas[i]=document.getElementById("vida"+i);		
 }
 refRonda=document.getElementById("ronda");
+var refTablero=document.getElementById("tablero");
+var refVolver=document.getElementById("btnVolver");
 
 window.onload = function() {
 	inicializarReferencias();
@@ -122,6 +124,8 @@ function aparecerAliens(){
 		especiales[i]=document.getElementById("especial"+id);
 		
 	}
+	refTablero.classList.add("noClick");
+	refVolver.classList.add("noClick");
 	console.log(especiales);
 	
 	var k=0;
@@ -248,9 +252,12 @@ function ganoRonda(){
 
 
 function empezarDeCero(){
+
 	NumeroEspeciales=3;
 	vidas=3;
 	rondaa=1;
+	tiempoRonda=-3;
+	jugando=false;
 	for(var i=1;i<4;i++){
 		vectorVidas[i].classList.remove('alienOculto');
 		vectorVidas[i].classList.remove('bounceOut');		
@@ -272,6 +279,7 @@ function empezarDeCero(){
 	
 	aparecerAliens().then(()=>{
 		var p=0;
+		
 		return new Promise(resolve => {
 			var aparecer = setInterval(()=>{	
 			if(p>=NumeroEspeciales){
@@ -292,10 +300,13 @@ function empezarDeCero(){
 			});
 			
 	}).then(()=>{
+		
 		Swal.fire({
 			title: 'Empieza',
 			timer: 800,		
 		})
+		refTablero.classList.remove("noClick");
+		refVolver.classList.remove("noClick");
 		tiempoRonda=15;
 		return new Promise(resolve => {
 		var timer = setInterval(iniciarContador,1000);
