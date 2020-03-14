@@ -163,7 +163,7 @@ function perdioVida(){
 		tiempoRonda=-3;
 		Swal.fire({
 			title: 'Game Over',
-			timer: 800,		
+			timer: 1000,		
 		}).then((result) => {
 			if (result.dismiss === Swal.DismissReason.timer) {
 				empezarDeCero();
@@ -178,7 +178,7 @@ function perdioVida(){
 		desaparecerVida();
 		Swal.fire({
 			title: 'Perdiste Vida',
-			timer: 800,		
+			timer: 1000,		
 		}).then((result) => {
 			if (result.dismiss === Swal.DismissReason.timer) {
 				ronda();
@@ -194,7 +194,7 @@ function tiempoAcabo(){
 		tiempoRonda=-3;
 		Swal.fire({
 			title: 'Game Over',
-			timer: 800,		
+			timer: 1000,		
 		}).then((result) => {
 			if (result.dismiss === Swal.DismissReason.timer) {
 				empezarDeCero();
@@ -208,7 +208,7 @@ function tiempoAcabo(){
 		desaparecerVida();
 		Swal.fire({
 			title: 'Perdiste Vida',
-			timer: 800,		
+			timer: 1000,		
 		}).then((result) => {
 			if (result.dismiss === Swal.DismissReason.timer) {
 				ronda();
@@ -243,7 +243,7 @@ function ganoRonda(){
 
 		Swal.fire({
 			title: 'Bien',
-			timer: 800,		
+			timer: 1000,		
 		}).then((result) => {
 			if (result.dismiss === Swal.DismissReason.timer) {
 				ronda();
