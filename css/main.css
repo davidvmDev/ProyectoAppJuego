@@ -117,6 +117,9 @@ section {
 	pointer-events: none;
 }
 
+.swal2-styled.swal2-confirm{
+	visibility: hidden !important;
+}
 .alienJuego {
 	height: 90px;
 	width: 60px;

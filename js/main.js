@@ -34,7 +34,8 @@ window.onload = function() {
 	document.body.appendChild(padre);
 	document.getElementById('imgSplash').src = 'img/Splash.gif';
     setTimeout(cambiarSplash, tiempo_splash);
-    refRonda.innerHTML=1;
+	refRonda.innerHTML=1;
+	
 };
 
 function inicializarReferencias() {
@@ -62,6 +63,7 @@ function cambiarSeccion(id_seccion) {
 	secciones[id_seccion].classList.remove('oculto');
 }
 
+
 // Se inicia el tablero
 function iniciarTablero() {
 	var aliens=[];// tofos los aliens
@@ -73,7 +75,7 @@ function iniciarTablero() {
 		for (var i = 0; i < 25; i++) {
 			var numeroAleatorio=Math.round(Math.random()*(5 - 1) + 1);
 								
-        	aliens[i]="<div> <img src='img/alien"+numeroAleatorio+".PNG' class='alienOculto alienJuego'> </div>";                     
+        	aliens[i]="<div> <img src='img/alien"+numeroAleatorio+".PNG' onclick='casillaErronea()' class='alienOculto alienJuego'> </div>";                     
 		}
 	var totalAliens = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,0];
 	lista = totalAliens.sort(function() {return Math.random() - 0.5});
@@ -115,6 +117,9 @@ function comparar_ganador(a,b){
 	}	
 	
 	
+}
+function casillaErronea(){
+	perdioVida();
 }
 //funcion para aparecer los aliens
 function aparecerAliens(){
