@@ -16,6 +16,8 @@ for(var i=1;i<4;i++){
 	vectorVidas[i]=document.getElementById("vida"+i);		
 }
 refRonda=document.getElementById("ronda");
+var refTablero=document.getElementById("tablero");
+var refVolver=document.getElementById("btnVolver");
 
 window.onload = function() {
 	inicializarReferencias();
@@ -27,7 +29,8 @@ window.onload = function() {
 	}
 	document.getElementById('imgSplash').src = 'img/Splash.gif';
     setTimeout(cambiarSplash, tiempo_splash);
-    refRonda.innerHTML=1;
+	refRonda.innerHTML=1;
+	
 };
 
 function inicializarReferencias() {
@@ -55,6 +58,7 @@ function cambiarSeccion(id_seccion) {
 	secciones[id_seccion].classList.remove('oculto');
 }
 
+
 // Se inicia el tablero
 function iniciarTablero() {
 	
@@ -67,7 +71,7 @@ function iniciarTablero() {
 		for (var i = 0; i < 25; i++) {
 			var numeroAleatorio=Math.round(Math.random()*(5 - 1) + 1);
 								
-        	aliens[i]="<div> <img src='img/alien"+numeroAleatorio+".PNG' class='alienOculto alienJuego'> </div>";                     
+        	aliens[i]="<div> <img src='img/alien"+numeroAleatorio+".PNG' onclick='casillaErronea()' class='alienOculto alienJuego'> </div>";                     
 		}
 	var totalAliens = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,0];
 	lista = totalAliens.sort(function() {return Math.random() - 0.5});
@@ -110,6 +114,9 @@ function comparar_ganador(a,b){
 	
 	
 }
+function casillaErronea(){
+	perdioVida();
+}
 //funcion para aparecer los aliens
 function aparecerAliens(){
 	
@@ -118,6 +125,8 @@ function aparecerAliens(){
 		especiales[i]=document.getElementById("especial"+id);
 		
 	}
+	refTablero.classList.add("noClick");
+	refVolver.classList.add("noClick");
 	console.log(especiales);
 	
 	var k=0;
@@ -150,7 +159,7 @@ function perdioVida(){
 		tiempoRonda=1;
 		Swal.fire({
 			title: 'Game Over',
-			timer: 800,		
+			timer: 1000,		
 		}).then((result) => {
 			if (result.dismiss === Swal.DismissReason.timer) {
 				empezarDeCero();
@@ -165,7 +174,7 @@ function perdioVida(){
 		desaparecerVida();
 		Swal.fire({
 			title: 'Perdiste Vida',
-			timer: 800,		
+			timer: 1000,		
 		}).then((result) => {
 			if (result.dismiss === Swal.DismissReason.timer) {
 				ronda();
@@ -174,6 +183,36 @@ function perdioVida(){
 	}
 	
 	
+}
+
+function tiempoAcabo(){
+	if(vidas==1){
+		tiempoRonda=-3;
+		Swal.fire({
+			title: 'Game Over',
+			timer: 1000,		
+		}).then((result) => {
+			if (result.dismiss === Swal.DismissReason.timer) {
+				empezarDeCero();
+				
+			}
+		})
+		
+	}
+	else{
+		vidas--;	
+		desaparecerVida();
+		Swal.fire({
+			title: 'Perdiste Vida',
+			timer: 1000,		
+		}).then((result) => {
+			if (result.dismiss === Swal.DismissReason.timer) {
+				ronda();
+			}
+		})
+	}
+
+
 }
 
 function desaparecerVida(){
@@ -200,7 +239,7 @@ function ganoRonda(){
 
 		Swal.fire({
 			title: 'Bien',
-			timer: 800,		
+			timer: 1000,		
 		}).then((result) => {
 			if (result.dismiss === Swal.DismissReason.timer) {
 				ronda();
@@ -214,9 +253,12 @@ function ganoRonda(){
 
 
 function empezarDeCero(){
+
 	NumeroEspeciales=3;
 	vidas=3;
 	rondaa=1;
+	tiempoRonda=-3;
+	jugando=false;
 	for(var i=1;i<4;i++){
 		vectorVidas[i].classList.remove('alienOculto');
 		vectorVidas[i].classList.remove('bounceOut');		
@@ -238,6 +280,7 @@ function empezarDeCero(){
 	
 	aparecerAliens().then(()=>{
 		var p=0;
+		
 		return new Promise(resolve => {
 			var aparecer = setInterval(()=>{	
 			if(p>=NumeroEspeciales){
@@ -258,10 +301,13 @@ function empezarDeCero(){
 			});
 			
 	}).then(()=>{
+		
 		Swal.fire({
 			title: 'Empieza',
 			timer: 800,		
 		})
+		refTablero.classList.remove("noClick");
+		refVolver.classList.remove("noClick");
 		tiempoRonda=15;
 		return new Promise(resolve => {
 		var timer = setInterval(iniciarContador,1000);

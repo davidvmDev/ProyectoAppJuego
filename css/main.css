@@ -114,7 +114,13 @@ section {
 	background-color: #102439;
 	align-content: center;
 }
+.noClick{
+	pointer-events: none;
+}
 
+.swal2-styled.swal2-confirm{
+	visibility: hidden !important;
+}
 .alienJuego {
 	height: 90px;
 	width: 60px;
