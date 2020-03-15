@@ -21,15 +21,10 @@ window.onload = function() {
 	inicializarReferencias();
 	
     //Crear Fondo
-	var dot = [];
-	var padre = document.createElement('div');
-	padre.classList.add("fondopixel");
-
+    var dot = [];
 	for (var i = 0; i < 50; i++) {
-		
-		dot.push(new freshDot(padre));
+		dot.push(new freshDot());
 	}
-	document.body.appendChild(padre);
 	document.getElementById('imgSplash').src = 'img/Splash.gif';
     setTimeout(cambiarSplash, tiempo_splash);
     refRonda.innerHTML=1;
@@ -62,6 +57,7 @@ function cambiarSeccion(id_seccion) {
 
 // Se inicia el tablero
 function iniciarTablero() {
+	
 	var aliens=[];// tofos los aliens
 	var salida="";
 	
@@ -91,10 +87,10 @@ function iniciarTablero() {
 }
 
 function validar(opc){
-	especiales[opc].classList.remove('alienOculto');
-	especiales[opc].classList.add('bounceIn');
 	resp_arr.push(opc);
 	comparar_ganador(ref_arr,resp_arr);
+	console.log(ref_arr);
+	console.log(resp_arr);
 }
 function comparar_ganador(a,b){
 	for(var i=0;i<b.length;i++){
@@ -139,7 +135,7 @@ function aparecerAliens(){
 				k++;
 				
 			}					
-	},1000);
+	},1500);
 	},reject=>{
 		if(jugando==false){
 			reject('chao');
@@ -151,7 +147,7 @@ function aparecerAliens(){
 
 function perdioVida(){
 	if(vidas==1){
-		tiempoRonda=-3;
+		tiempoRonda=1;
 		Swal.fire({
 			title: 'Game Over',
 			timer: 800,		
@@ -165,7 +161,7 @@ function perdioVida(){
 	}
 	else{
 		vidas--;
-		tiempoRonda=-3;
+		tiempoRonda=1;
 		desaparecerVida();
 		Swal.fire({
 			title: 'Perdiste Vida',
@@ -178,36 +174,6 @@ function perdioVida(){
 	}
 	
 	
-}
-
-function tiempoAcabo(){
-	if(vidas==1){
-		tiempoRonda=-3;
-		Swal.fire({
-			title: 'Game Over',
-			timer: 800,		
-		}).then((result) => {
-			if (result.dismiss === Swal.DismissReason.timer) {
-				empezarDeCero();
-				
-			}
-		})
-		
-	}
-	else{
-		vidas--;	
-		desaparecerVida();
-		Swal.fire({
-			title: 'Perdiste Vida',
-			timer: 800,		
-		}).then((result) => {
-			if (result.dismiss === Swal.DismissReason.timer) {
-				ronda();
-			}
-		})
-	}
-
-
 }
 
 function desaparecerVida(){
@@ -228,7 +194,7 @@ function ganoRonda(){
 	else{
 		rondaa++;
 		NumeroEspeciales++;
-		tiempoRonda=-3;		
+		tiempoRonda=1;
 		refRonda.innerHTML=rondaa.toString();
 		jugando=false;	
 
@@ -284,7 +250,7 @@ function empezarDeCero(){
 				p++;
 					
 			}					
-			},1000);
+			},1500);
 		},reject=>{
 			if(jugando==false){
 				reject('chao');
@@ -301,17 +267,10 @@ function empezarDeCero(){
 		var timer = setInterval(iniciarContador,1000);
 		
 			function iniciarContador(){	
-				if(tiempoRonda<=-3){														
-					clearInterval(timer);									
+				if(tiempoRonda<=0){
+					clearInterval(timer);
 					estaContando=false;
 					resolve('tiempoTerminado');
-				}
-				else if(tiempoRonda<=-1){
-					tiempoAcabo();
-					clearInterval(timer);									
-					estaContando=false;
-					resolve('tiempoTerminado');
-
 				}
 				else {
 					puntaje.innerHTML=tiempoRonda--;	
@@ -325,8 +284,7 @@ function empezarDeCero(){
 }
 
 //Fondo con estrellas
-function freshDot(padre) {
-	
+function freshDot() {
 	this.obj = document.createElement('div');
 	this.obj.classList.add('box');
 	this.obj.style.top = 776 * Math.random() + 'px';
@@ -334,5 +292,6 @@ function freshDot(padre) {
 	this.size = Math.floor(5 * Math.random()) + 7;
 	this.obj.style.height = this.size + 'px';
 	this.obj.style.width = this.size + 'px';
-	padre.appendChild(this.obj);
+
+	document.body.appendChild(this.obj);
 }

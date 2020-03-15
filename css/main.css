@@ -12,14 +12,15 @@ h3 {
 section {
 	width: 424px;
 	height: 776px;
+	background: #102439;
 	color: white;
 	position: absolute;
 	text-align: center;
 }
 
 .box {
-	position: absolute;
 	background-color: #daa520;
+	position: fixed;
 }
 
 .btnMenu {
@@ -185,13 +186,4 @@ h3 {
 	margin: 40px 25px 25px 25px;
 	display: flex;
 	align-items: center;
-}
-
-.fondopixel{
-	background: #102439;
-    width: 424px;
-    height: 776px;
-    z-index: -1;
-    position: fixed;
-    overflow: hidden;
 }
