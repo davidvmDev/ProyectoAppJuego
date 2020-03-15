@@ -1,14 +1,8 @@
-/*Fuente*/
-@font-face {
-	font-family: 8bitoperator;
-	src: url(8bitoperator.ttf);
-}
-
 /*General*/
 body {
 	margin: 0;
 	position: relative;
-	font-family: 8bitoperator;
+	font-family: '8bitoperator', 'Press Start 2P';
 }
 
 h3 {
@@ -61,7 +55,7 @@ section {
 /*Inicio*/
 .alienInicio {
 	width: 150px;
-	height: 196px;
+	height: 188px;
 	margin: 0 20px 0 20px;
 	display: inline-block;
 }
@@ -127,8 +121,8 @@ section {
 	visibility: hidden !important;
 }
 .alienJuego {
-	height: 90px;
-	width: 60px;
+	height: 95px;
+	width: 65px;
 }
 
 .alienOculto {
@@ -165,11 +159,11 @@ h3 {
 }
 
 #raro {
-	color: blue;
+	color: #0468fd;
 }
 
 #comun {
-	color: green;
+	color: #4dae1d;
 }
 
 #epico {

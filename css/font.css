@@ -1,0 +1,10 @@
+@font-face {
+	font-family: 8bitoperator;
+	src: url(fonts/8bitoperator.eot); /* IE9 Compat Modes */
+	src: url(fonts/8bitoperator.eot?#iefix) format(embedded-opentype),
+		url(fonts/8bitoperator.otf) format(opentype), url(fonts/8bitoperator.svg) format(svg),
+		url(fonts/8bitoperator.ttf) format(truetype), url(fonts/8bitoperator.woff) format(woff),
+		url(fonts/8bitoperator.woff2) format(woff2); /* Modern Browsers */
+	font-weight: normal;
+	font-style: normal;
+}
