@@ -1,3 +1,4 @@
+
 var secciones = [];
 var tiempo_splash = 4400;
 var ref_arr = [];
@@ -133,7 +134,7 @@ function aparecerAliens() {
 	}
 	refTablero.classList.add('noClick');
 	refVolver.classList.add('noClick');
-	console.log(especiales);
+
 
 	var k = 0;
 	return new Promise(
@@ -265,8 +266,6 @@ function ronda() {
 	jugando = true;
 	cambiarSeccion(3);
 	iniciarTablero();
-	console.log(resp_arr);
-	console.log(ref_arr);
 
 	aparecerAliens()
 		.then(() => {
