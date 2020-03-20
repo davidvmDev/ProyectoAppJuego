@@ -249,6 +249,7 @@ function empezarDeCero() {
 	vidas = 3;
 	rondaa = 1;
 	tiempoRonda = -3;
+	refRonda.innerHTML = rondaa.toString();
 	jugando = false;
 	for (var i = 1; i < 4; i++) {
 		vectorVidas[i].classList.remove('alienOculto');
